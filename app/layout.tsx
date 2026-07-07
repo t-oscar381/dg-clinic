@@ -1,0 +1,92 @@
+import type { Metadata } from "next";
+import { Montserrat, Playfair_Display } from "next/font/google";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import {
+  INSTAGRAM_URL,
+  LEGAL_NAME,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/site";
+import "./globals.css";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
+
+// Heading serif; the licensed brand fonts take over via the CSS font
+// stack once self-hosted.
+const serifStandin = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-serif-standin",
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: "Denish Gunawan Clinic — Premium Homecare Wellness in Jakarta",
+  description:
+    "Denish Gunawan Clinic (DG Clinic) brings doctor-led home-care wellness to Jakarta — infusion therapy and regenerative treatment, delivered privately to your door. Trusted since 2021.",
+  openGraph: {
+    siteName: SITE_NAME,
+    type: "website",
+    locale: "en_US",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  name: SITE_NAME,
+  alternateName: "DG Clinic",
+  legalName: LEGAL_NAME,
+  url: SITE_URL,
+  slogan: "Hospital-Level Excellence. Boutique-Level Care.",
+  description:
+    "Doctor-led home-care wellness clinic serving Greater Jakarta: infusion therapy plus stem cell and weight loss therapy, delivered privately at home.",
+  logo: `${SITE_URL}/logo/Logo.svg`,
+  image: `${SITE_URL}/images/founder.avif`,
+  foundingDate: "2021",
+  founder: {
+    "@type": "Person",
+    name: "dr. Denish Gunawan, MPH",
+  },
+  telephone: "+62811969866",
+  sameAs: [INSTAGRAM_URL],
+  areaServed: [
+    "Jakarta Barat",
+    "Jakarta Selatan",
+    "Jakarta Pusat",
+    "Jakarta Utara",
+    "BSD City",
+    "Serpong",
+    "Gading Serpong",
+    "Tangerang Selatan",
+    "Alam Sutera",
+    "Tangerang",
+  ],
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${montserrat.variable} ${serifStandin.variable}`}
+    >
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <SiteHeader />
+        <main>{children}</main>
+        <SiteFooter />
+      </body>
+    </html>
+  );
+}
