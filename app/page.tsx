@@ -1,5 +1,5 @@
 import Link from "next/link";
-import TwoPathsSplit from "@/components/TwoPathsSplit";
+import FourPathsSplit from "@/components/FourPathsSplit";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function HomePage() {
@@ -30,16 +30,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Two-column comparison — the site's core structure */}
+      {/* Four-category architecture — the site's core structure (v1.5) */}
       <section className="section container">
         <div className="center">
-          <h2>Two Paths to Better Health</h2>
+          <h2>Four Paths to Better Health</h2>
           <p className="lede">
             Whether you need daily wellness support or advanced regenerative
             care, DG Clinic brings the right treatment to you.
           </p>
         </div>
-        <TwoPathsSplit />
+        <FourPathsSplit />
         <p className="split-hint">
           Hover or tap a path to bring it into focus — select again to
           explore.
@@ -99,8 +99,8 @@ export default function HomePage() {
       <section className="section container center">
         <h2>Wherever You Are in Jakarta, We Come to You</h2>
         <p className="lede">
-          Jakarta · BSD City &amp; Serpong · Alam Sutera &amp; Tangerang ·
-          Greater Jakarta surrounding areas
+          All Jakarta areas · BSD City &amp; Serpong · Alam Sutera &amp;
+          Tangerang · Greater Jakarta surrounding areas
         </p>
         <Link href="/service-area" className="btn btn-ghost">
           See Service Areas &amp; Contact

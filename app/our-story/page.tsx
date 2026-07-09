@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "Our Story — Denish Gunawan Clinic, Jakarta",
+  title: "Our Story — DG Clinic, Jakarta",
   description:
-    "How Denish Gunawan Clinic (DG Clinic) began: a pandemic-era commitment to accessible, private home-care, founded by dr. Denish Gunawan, MPH.",
+    "How DG Clinic began: a pandemic-era commitment to accessible, private home-care, founded by dr. Denish Gunawan, MPH.",
 };
 
 export default function OurStoryPage() {
@@ -16,6 +16,9 @@ export default function OurStoryPage() {
           src="/images/founder.avif"
           alt="dr. Denish Gunawan, MPH — founder of Denish Gunawan Clinic"
           className="portrait-photo"
+          width={200}
+          height={200}
+          fetchPriority="high"
         />
         <span className="eyebrow">Our Story</span>
         <h1>Meet the Man Behind DG Clinic</h1>

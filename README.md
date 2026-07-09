@@ -9,7 +9,9 @@ Instagram: [@dg.clinic.hnw](https://www.instagram.com/dg.clinic.hnw)
 
 - `/` — Home
 - `/infusion-therapy` — Infusion Therapy
-- `/stem-cell-weight-loss` — Stem Cell & Weight Loss Therapy
+- `/regenerative-therapy` — Regenerative Therapy
+- `/metabolic-wellness` — Metabolic Wellness
+- `/aesthetics-hair-growth` — Aesthetics & Hair Growth
 - `/our-story` — Our Story
 - `/service-area` — Service Areas & Contact
 

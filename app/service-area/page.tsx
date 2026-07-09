@@ -9,9 +9,9 @@ import {
 } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Service Areas & Contact — Denish Gunawan Clinic Homecare Jakarta",
+  title: "Service Areas & Contact — DG Clinic Homecare Jakarta",
   description:
-    "Denish Gunawan Clinic (DG Clinic) serves Greater Jakarta with private, doctor-led home-care. Message us on WhatsApp to book your visit.",
+    "DG Clinic serves Greater Jakarta with private, doctor-led home-care. Message us on WhatsApp to arrange your visit.",
 };
 
 export default function ServiceAreaPage() {

@@ -38,8 +38,49 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+a,
+button {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 100;
+  background: var(--color-navy);
+  color: var(--color-white);
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.skip-link:focus-visible {
+  top: 16px;
 }
 
 body {
@@ -297,8 +338,14 @@ svg {
 
 .hero {
   padding-top: 110px;
-  padding-bottom: 96px;
+  padding-bottom: 56px;
   text-align: center;
+}
+
+/* Subpage heroes end with the lede — drop its bottom margin so the
+   hero-to-content gap stays consistent. */
+.hero .lede:last-child {
+  margin-bottom: 0;
 }
 
 .hero h1 {
@@ -536,17 +583,87 @@ svg {
   margin-top: 18px;
 }
 
+/* Four-panel variant (v1.5 category architecture) */
+.split-4 .split-content {
+  padding: 30px 26px;
+}
+
+.split-4 .split-content h3 {
+  font-size: 1.22rem;
+}
+
+.split-4 .split-copy {
+  font-size: 0.87rem;
+}
+
+.split-4 .split-panel:nth-child(2) .split-go {
+  border-bottom-color: var(--color-gold);
+}
+
+@media (max-width: 1200px) {
+  .split-4 {
+    flex-wrap: wrap;
+  }
+  .split-4 .split-panel {
+    flex: 1 1 42%;
+    min-height: 460px;
+  }
+}
+
 @media (max-width: 900px) {
   .split {
     flex-direction: column;
   }
-  .split-panel {
+  .split-panel,
+  .split-4 .split-panel {
     min-height: 420px;
     transition: min-height 0.65s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .split-panel.is-active {
+  .split-panel.is-active,
+  .split-4 .split-panel.is-active {
     min-height: 540px;
   }
+}
+
+/* --- Treatment tabs (v1.5 catalogue) --------------------------------- */
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.tab {
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-white);
+  color: var(--color-navy);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.tab:hover {
+  border-color: var(--color-teal);
+  color: var(--color-teal);
+}
+
+.tab.is-active {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+  color: var(--color-white);
+}
+
+.tab-panel {
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 /* --- Badges ---------------------------------------------------------- */

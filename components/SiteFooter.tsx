@@ -21,6 +21,7 @@ export default function SiteFooter() {
             alt={SITE_NAME}
             className="footer-logo"
             height={88}
+            loading="lazy"
           />
           <p className="footer-tagline">{TAGLINE}</p>
         </div>
@@ -56,8 +57,9 @@ export default function SiteFooter() {
             Instagram {INSTAGRAM_HANDLE}
           </a>
           <p className="footer-area">
-            Serving Greater Jakarta — Jakarta, BSD City & Serpong, Alam Sutera
-            & Tangerang.
+            Serving Greater Jakarta — all Jakarta areas (Barat, Pusat,
+            Selatan, Timur, Utara), BSD City & Serpong, Alam Sutera &
+            Tangerang.
           </p>
         </div>
       </div>

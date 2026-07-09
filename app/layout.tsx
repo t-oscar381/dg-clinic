@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat, Playfair_Display } from "next/font/google";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -22,11 +22,16 @@ const serifStandin = Playfair_Display({
   variable: "--font-serif-standin",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#f7f3ec",
+  colorScheme: "light",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Denish Gunawan Clinic — Premium Homecare Wellness in Jakarta",
+  title: "DG Clinic — Premium Homecare Wellness in Jakarta",
   description:
-    "Denish Gunawan Clinic (DG Clinic) brings doctor-led home-care wellness to Jakarta — infusion therapy and regenerative treatment, delivered privately to your door. Trusted since 2021.",
+    "DG Clinic brings doctor-led home-care to Jakarta — infusion, regenerative therapy, metabolic wellness, and aesthetics, delivered privately to your door. Trusted since 2021.",
   openGraph: {
     siteName: SITE_NAME,
     type: "website",
@@ -43,7 +48,7 @@ const jsonLd = {
   url: SITE_URL,
   slogan: "Hospital-Level Excellence. Boutique-Level Care.",
   description:
-    "Doctor-led home-care wellness clinic serving Greater Jakarta: infusion therapy plus stem cell and weight loss therapy, delivered privately at home.",
+    "Doctor-led home-care wellness clinic serving Greater Jakarta: infusion therapy, regenerative therapy, metabolic wellness, and aesthetics & hair growth, delivered privately at home.",
   logo: `${SITE_URL}/logo/Logo.svg`,
   image: `${SITE_URL}/images/founder.avif`,
   foundingDate: "2021",
@@ -55,8 +60,9 @@ const jsonLd = {
   sameAs: [INSTAGRAM_URL],
   areaServed: [
     "Jakarta Barat",
-    "Jakarta Selatan",
     "Jakarta Pusat",
+    "Jakarta Selatan",
+    "Jakarta Timur",
     "Jakarta Utara",
     "BSD City",
     "Serpong",
@@ -83,8 +89,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <SiteHeader />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <SiteFooter />
       </body>
     </html>

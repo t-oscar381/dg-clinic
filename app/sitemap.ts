@@ -5,7 +5,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
     "/infusion-therapy",
-    "/stem-cell-weight-loss",
+    "/regenerative-therapy",
+    "/metabolic-wellness",
+    "/aesthetics-hair-growth",
     "/our-story",
     "/service-area",
   ];
