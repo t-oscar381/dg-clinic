@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat, Playfair_Display } from "next/font/google";
+import CursorRing from "@/components/CursorRing";
 import FloatingActions from "@/components/FloatingActions";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -97,6 +98,7 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
         <SiteFooter />
         <FloatingActions />
+        <CursorRing />
       </body>
     </html>
   );

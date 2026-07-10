@@ -1250,6 +1250,63 @@ svg {
   margin-top: 10px;
 }
 
+/* --- Cursor-following breathing ring ---------------------------------- */
+/* Trails the pointer; the ping ring pulses outward continuously. Pure
+   decoration — pointer-events off so it never blocks interaction. */
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  z-index: 200;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  will-change: transform;
+}
+
+.cursor-ring.is-visible {
+  opacity: 1;
+}
+
+.cursor-ring__core,
+.cursor-ring__ping {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--color-teal);
+}
+
+.cursor-ring__core {
+  opacity: 0.55;
+}
+
+.cursor-ring__ping {
+  animation: cursorPing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes cursorPing {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.5;
+  }
+  75%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-ring__ping {
+    animation: none;
+    opacity: 0;
+  }
+}
+
 /* --- Floating contact buttons ----------------------------------------- */
 /* Fixed to the viewport, cascading toward center: WhatsApp anchors the
    bottom slightly right, Instagram above nudged left. */
