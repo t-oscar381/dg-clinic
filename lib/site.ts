@@ -22,14 +22,29 @@ export const WHATSAPP_URL = waLink(
 export const INSTAGRAM_HANDLE = "@dg.clinic.hnw";
 export const INSTAGRAM_URL = "https://www.instagram.com/dg.clinic.hnw";
 
-export const NAV_ITEMS = [
+// Clinic location shown on the map. CLINIC_MAP_QUERY is a placeholder
+// area query — replace with the exact street address or coordinates
+// once confirmed. Uses the keyless Google Maps embed (no API key).
+export const CLINIC_AREA = "Duri Selatan, West Jakarta";
+export const CLINIC_MAP_QUERY = "Duri Selatan, Tambora, Jakarta Barat";
+export const clinicMapEmbedUrl = () =>
+  `https://www.google.com/maps?q=${encodeURIComponent(
+    CLINIC_MAP_QUERY
+  )}&z=15&output=embed`;
+
+export const NAV_CATEGORIES = [
   { href: "/infusion-therapy", label: "Infusion Therapy" },
   { href: "/regenerative-therapy", label: "Regenerative Therapy" },
   { href: "/metabolic-wellness", label: "Metabolic Wellness" },
   { href: "/aesthetics-hair-growth", label: "Aesthetics & Hair Growth" },
+] as const;
+
+export const NAV_SECONDARY = [
   { href: "/our-story", label: "Our Story" },
   { href: "/service-area", label: "Service Area & Contact" },
 ] as const;
+
+export const NAV_ITEMS = [...NAV_CATEGORIES, ...NAV_SECONDARY] as const;
 
 export const SERVICE_REGIONS = [
   {

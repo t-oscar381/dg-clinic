@@ -1,5 +1,6 @@
 import Link from "next/link";
 import FourPathsSplit from "@/components/FourPathsSplit";
+import Reveal from "@/components/Reveal";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function HomePage() {
@@ -30,20 +31,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Four-category architecture — the site's core structure (v1.5) */}
+      {/* Four-category architecture — the site's core structure */}
       <section className="section container">
-        <div className="center">
-          <h2>Four Paths to Better Health</h2>
-          <p className="lede">
-            Whether you need daily wellness support or advanced regenerative
-            care, DG Clinic brings the right treatment to you.
+        <Reveal>
+          <div className="center">
+            <h2>Four Paths to Better Health</h2>
+            <p className="lede">
+              Whether you need daily wellness support or advanced regenerative
+              care, DG Clinic brings the right treatment to you.
+            </p>
+          </div>
+        </Reveal>
+        <Reveal delay={90}>
+          <FourPathsSplit />
+          <p className="split-hint">
+            Hover or tap a path to bring it into focus — select again to
+            explore.
           </p>
-        </div>
-        <FourPathsSplit />
-        <p className="split-hint">
-          Hover or tap a path to bring it into focus — select again to
-          explore.
-        </p>
+        </Reveal>
       </section>
 
       {/* Why DG Clinic — navy trust block */}
@@ -59,18 +64,24 @@ export default function HomePage() {
             nurse-only visit — in the discretion of your own home.
           </p>
           <div className="stat-cards">
-            <div className="stat-card">
-              <p className="stat-value">Est. 2021</p>
-              <p className="stat-label">Trusted Since</p>
-            </div>
-            <div className="stat-card">
-              <p className="stat-value">10,000+</p>
-              <p className="stat-label">Patients Served</p>
-            </div>
-            <div className="stat-card">
-              <p className="stat-value">100%</p>
-              <p className="stat-label">Doctor-Only Dispatch</p>
-            </div>
+            <Reveal delay={0}>
+              <div className="stat-card">
+                <p className="stat-value">Est. 2021</p>
+                <p className="stat-label">Trusted Since</p>
+              </div>
+            </Reveal>
+            <Reveal delay={90}>
+              <div className="stat-card">
+                <p className="stat-value">10,000+</p>
+                <p className="stat-label">Patients Served</p>
+              </div>
+            </Reveal>
+            <Reveal delay={180}>
+              <div className="stat-card">
+                <p className="stat-value">100%</p>
+                <p className="stat-label">Doctor-Only Dispatch</p>
+              </div>
+            </Reveal>
           </div>
           <ul className="pillar-list">
             <li>
@@ -97,14 +108,16 @@ export default function HomePage() {
 
       {/* Service area teaser */}
       <section className="section container center">
-        <h2>Wherever You Are in Jakarta, We Come to You</h2>
-        <p className="lede">
-          All Jakarta areas · BSD City &amp; Serpong · Alam Sutera &amp;
-          Tangerang · Greater Jakarta surrounding areas
-        </p>
-        <Link href="/service-area" className="btn btn-ghost">
-          See Service Areas &amp; Contact
-        </Link>
+        <Reveal>
+          <h2>Wherever You Are in Jakarta, We Come to You</h2>
+          <p className="lede">
+            All Jakarta areas · BSD City &amp; Serpong · Alam Sutera &amp;
+            Tangerang · Greater Jakarta surrounding areas
+          </p>
+          <Link href="/service-area" className="btn btn-ghost">
+            See Service Areas &amp; Contact
+          </Link>
+        </Reveal>
       </section>
     </>
   );

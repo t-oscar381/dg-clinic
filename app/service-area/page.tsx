@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import LocationMap from "@/components/LocationMap";
+import Reveal from "@/components/Reveal";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import {
   INSTAGRAM_HANDLE,
@@ -83,6 +85,16 @@ export default function ServiceAreaPage() {
             variant="light"
           />
         </div>
+      </section>
+
+      <section className="section-tight container">
+        <Reveal>
+          <div className="center">
+            <span className="eyebrow">Find Us</span>
+            <h2>Our Location</h2>
+          </div>
+          <LocationMap />
+        </Reveal>
       </section>
     </>
   );

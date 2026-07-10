@@ -56,18 +56,24 @@ export default function SiteFooter() {
           >
             Instagram {INSTAGRAM_HANDLE}
           </a>
-          <p className="footer-area">
-            Serving Greater Jakarta — all Jakarta areas (Barat, Pusat,
-            Selatan, Timur, Utara), BSD City & Serpong, Alam Sutera &
-            Tangerang.
-          </p>
         </div>
       </div>
       <div className="container footer-bottom">
         <p>
           © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
         </p>
-        <p>Pricing is shared privately via WhatsApp.</p>
+        <p>
+          Our sister company:{" "}
+          <a
+            href="https://mindfulnish.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-sister"
+          >
+            Mindfulnish
+          </a>
+        </p>
+        <p>Full pricing and quotes are shared via WhatsApp.</p>
       </div>
     </footer>
   );
