@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LocationMap from "@/components/LocationMap";
 import {
   INSTAGRAM_HANDLE,
   INSTAGRAM_URL,
@@ -37,6 +38,11 @@ export default function SiteFooter() {
             </Link>
           ))}
         </nav>
+
+        <div className="footer-map">
+          <p className="footer-heading">Find Us</p>
+          <LocationMap compact />
+        </div>
 
         <div className="footer-contact">
           <p className="footer-heading">Contact</p>

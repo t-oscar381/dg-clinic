@@ -1,9 +1,9 @@
-import { CLINIC_AREA, clinicMapEmbedUrl } from "@/lib/site";
+import { CLINIC_ADDRESS, CLINIC_AREA, clinicMapEmbedUrl } from "@/lib/site";
 
-export default function LocationMap() {
+export default function LocationMap({ compact = false }: { compact?: boolean }) {
   return (
     <div>
-      <div className="location-map">
+      <div className={`location-map ${compact ? "location-map--compact" : ""}`.trim()}>
         <iframe
           title={`DG Clinic — ${CLINIC_AREA}`}
           src={clinicMapEmbedUrl()}
@@ -13,7 +13,7 @@ export default function LocationMap() {
         />
       </div>
       <p className="location-caption">
-        Visit us at DG Clinic — {CLINIC_AREA}. By appointment only.
+        DG Clinic — {CLINIC_ADDRESS}. By appointment only.
       </p>
     </div>
   );

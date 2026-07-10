@@ -22,15 +22,12 @@ export const WHATSAPP_URL = waLink(
 export const INSTAGRAM_HANDLE = "@dg.clinic.hnw";
 export const INSTAGRAM_URL = "https://www.instagram.com/dg.clinic.hnw";
 
-// Clinic location shown on the map. CLINIC_MAP_QUERY is a placeholder
-// area query — replace with the exact street address or coordinates
-// once confirmed. Uses the keyless Google Maps embed (no API key).
+// Clinic location shown on the map (keyless Google Maps embed).
 export const CLINIC_AREA = "Duri Selatan, West Jakarta";
-export const CLINIC_MAP_QUERY = "Duri Selatan, Tambora, Jakarta Barat";
+export const CLINIC_ADDRESS =
+  "Jl. Duri Selatan II No.14, Tambora, West Jakarta";
 export const clinicMapEmbedUrl = () =>
-  `https://www.google.com/maps?q=${encodeURIComponent(
-    CLINIC_MAP_QUERY
-  )}&z=15&output=embed`;
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.70274199999!2d106.8015!3d-6.1584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f67a216f9fbf%3A0xe7c569f4ebffc08!2sJl.%20Duri%20Selatan%20II%20No.14%2C%20RT.14%2FRW.2%2C%20Duri%20Sel.%2C%20Kec.%20Tambora%2C%20Kota%20Jakarta%20Barat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2011270!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid";
 
 export const NAV_CATEGORIES = [
   { href: "/infusion-therapy", label: "Infusion Therapy" },
