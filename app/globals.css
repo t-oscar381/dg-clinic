@@ -531,7 +531,7 @@ svg {
   border-radius: var(--radius-lg);
   overflow: hidden;
   display: flex;
-  align-items: flex-end;
+  align-items: stretch;
   text-decoration: none;
   box-shadow: var(--shadow-soft);
   transition: flex 0.65s cubic-bezier(0.4, 0, 0.2, 1);
@@ -562,18 +562,26 @@ svg {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to top,
-    rgba(30, 58, 95, 0.85),
-    rgba(30, 58, 95, 0.25) 45%,
-    rgba(30, 58, 95, 0.05)
+    to bottom,
+    rgba(30, 58, 95, 0.78),
+    rgba(30, 58, 95, 0.4) 55%,
+    rgba(30, 58, 95, 0.85)
   );
 }
 
 .split-content {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
   padding: 36px 32px;
   color: var(--color-white);
   width: 100%;
+}
+
+.split-content .split-go {
+  margin-top: auto;
 }
 
 .split-content h3 {

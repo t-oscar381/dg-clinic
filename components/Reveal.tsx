@@ -33,15 +33,31 @@ export default function Reveal({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
           setShown(true);
-          observer.unobserve(el);
+          observer.disconnect();
         }
       },
       { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
     );
     observer.observe(el);
-    return () => observer.disconnect();
+
+    // Fallback for jumps the observer can't see: an instant scroll from
+    // below the viewport to above it never produces an intersection
+    // change, and content must never stay hidden behind the reader.
+    const showIfPassed = () => {
+      if (el.getBoundingClientRect().top < 0) {
+        setShown(true);
+        observer.disconnect();
+        window.removeEventListener("scroll", showIfPassed);
+      }
+    };
+    window.addEventListener("scroll", showIfPassed, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", showIfPassed);
+    };
   }, []);
 
   return (
