@@ -1,111 +1,19 @@
 "use client";
 
 import { useRef, useState } from "react";
+import {
+  formatIdr,
+  INFUSION_PRODUCTS,
+  INFUSION_TIERS,
+} from "@/lib/pricing";
 import { waLink } from "@/lib/site";
-
-type Product = {
-  name: string;
-  desc: string;
-  was: string;
-  now: string;
-  save: string;
-};
-
-type Tier = {
-  id: string;
-  tab: string;
-  products: Product[];
-};
-
-const TIERS: Tier[] = [
-  {
-    id: "basic",
-    tab: "Basic",
-    products: [
-      {
-        name: "Vitamin B&C (IV)",
-        desc: "Boost daily energy, reduce fatigue",
-        was: "Rp 550.000",
-        now: "Rp 450.000",
-        save: "Rp 100.000",
-      },
-    ],
-  },
-  {
-    id: "essential",
-    tab: "Essential",
-    products: [
-      {
-        name: "Silver Booster (IV)",
-        desc: "Daily energy, immune health",
-        was: "Rp 900.000",
-        now: "Rp 750.000",
-        save: "Rp 150.000",
-      },
-      {
-        name: "Gold Booster (IV)",
-        desc: "Stable energy, stronger recovery",
-        was: "Rp 1.000.000",
-        now: "Rp 850.000",
-        save: "Rp 150.000",
-      },
-    ],
-  },
-  {
-    id: "signature",
-    tab: "Signature",
-    products: [
-      {
-        name: "Diamond Booster (IV)",
-        desc: "Cellular resilience, stable energy",
-        was: "Rp 1.400.000",
-        now: "Rp 1.150.000",
-        save: "Rp 250.000",
-      },
-    ],
-  },
-  {
-    id: "sickness",
-    tab: "Sickness Relief",
-    products: [
-      {
-        name: "Bye-Lergy",
-        desc: "Eases allergy symptoms",
-        was: "Rp 250.000",
-        now: "Rp 200.000",
-        save: "Rp 50.000",
-      },
-      {
-        name: "Fever Away",
-        desc: "Lowers fever safely",
-        was: "Rp 250.000",
-        now: "Rp 200.000",
-        save: "Rp 50.000",
-      },
-      {
-        name: "Rehydrate",
-        desc: "Replenishes fluids and electrolytes",
-        was: "Rp 650.000",
-        now: "Rp 500.000",
-        save: "Rp 150.000",
-      },
-      {
-        name: "Anti Gerd",
-        desc: "Alleviates acid reflux and nausea",
-        was: "Rp 750.000",
-        now: "Rp 600.000",
-        save: "Rp 150.000",
-      },
-    ],
-  },
-];
 
 export default function InfusionMenu() {
   const [active, setActive] = useState(0);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const focusTab = (index: number) => {
-    const next = (index + TIERS.length) % TIERS.length;
+    const next = (index + INFUSION_TIERS.length) % INFUSION_TIERS.length;
     setActive(next);
     tabRefs.current[next]?.focus();
   };
@@ -114,17 +22,18 @@ export default function InfusionMenu() {
     if (e.key === "ArrowRight") focusTab(active + 1);
     else if (e.key === "ArrowLeft") focusTab(active - 1);
     else if (e.key === "Home") focusTab(0);
-    else if (e.key === "End") focusTab(TIERS.length - 1);
+    else if (e.key === "End") focusTab(INFUSION_TIERS.length - 1);
     else return;
     e.preventDefault();
   };
 
-  const tier = TIERS[active];
+  const tier = INFUSION_TIERS[active];
+  const products = INFUSION_PRODUCTS.filter((p) => p.tierId === tier.id);
 
   return (
     <div>
       <div className="tabs" role="tablist" aria-label="Infusion therapy tiers">
-        {TIERS.map((t, i) => (
+        {INFUSION_TIERS.map((t, i) => (
           <button
             key={t.id}
             ref={(el) => {
@@ -139,7 +48,7 @@ export default function InfusionMenu() {
             onClick={() => setActive(i)}
             onKeyDown={handleKeyDown}
           >
-            {t.tab}
+            {t.label}
           </button>
         ))}
       </div>
@@ -150,30 +59,32 @@ export default function InfusionMenu() {
         aria-labelledby={`tab-${tier.id}`}
       >
         <div
-          className={`product-grid ${
-            tier.products.length === 1 ? "is-single" : ""
-          }`}
+          className={`product-grid ${products.length === 1 ? "is-single" : ""}`}
         >
-          {tier.products.map((product) => (
+          {products.map((product) => (
             <a
-              key={product.name}
+              key={product.id}
               className="product-card"
               href={waLink(
-                `Hello DG Clinic — I would like to book the ${product.name} (${product.now}).`
+                `Hello DG Clinic — I would like to book the ${product.name} (${formatIdr(
+                  product.nowIdr
+                )}).`
               )}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Book the ${product.name} on WhatsApp`}
             >
               <span className="product-card__rail" aria-hidden="true" />
-              <span className="product-card__category">{tier.tab}</span>
+              <span className="product-card__category">{tier.label}</span>
               <h3>{product.name}</h3>
               <p className="product-card__desc">{product.desc}</p>
               <div className="product-card__prices">
-                <span className="price-was">{product.was}</span>
-                <span className="price-now">{product.now}</span>
+                <span className="price-was">{formatIdr(product.wasIdr)}</span>
+                <span className="price-now">{formatIdr(product.nowIdr)}</span>
               </div>
-              <span className="price-save">Hemat {product.save}</span>
+              <span className="price-save">
+                Hemat {formatIdr(product.saveIdr)}
+              </span>
               <div className="product-card__cta">
                 <span>Book via WhatsApp</span>
                 <span className="product-card__arrow" aria-hidden="true">
