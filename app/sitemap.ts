@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/aesthetics-hair-growth",
     "/our-story",
     "/service-area",
+    "/privacy",
   ];
   return routes.map((route) => ({
     url: `${SITE_URL}${route}`,

@@ -69,6 +69,11 @@ export default function SiteFooter() {
           © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
         </p>
         <p>
+          <Link href="/privacy" className="footer-sister">
+            Privacy Policy
+          </Link>
+        </p>
+        <p>
           Our sister company:{" "}
           <a
             href="https://mindfulnish.com"

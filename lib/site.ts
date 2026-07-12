@@ -22,6 +22,12 @@ export const WHATSAPP_URL = waLink(
 export const INSTAGRAM_HANDLE = "@dg.clinic.hnw";
 export const INSTAGRAM_URL = "https://www.instagram.com/dg.clinic.hnw";
 
+// Contact address for privacy/data requests.
+export const CONTACT_EMAIL = "dg.clinic.healthandwellness@gmail.com";
+
+// Effective date shown on the Privacy Policy. Update when the policy changes.
+export const PRIVACY_LAST_UPDATED = "12 July 2026";
+
 // Clinic location shown on the map (keyless Google Maps embed).
 export const CLINIC_AREA = "Duri Selatan, West Jakarta";
 export const CLINIC_ADDRESS =
