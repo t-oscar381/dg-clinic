@@ -1258,6 +1258,356 @@ svg {
   margin-top: 10px;
 }
 
+/* --- Admin finance simulator ------------------------------------------- */
+/* Internal learning tool: cart -> simulated Paper.id payment -> receipt.
+   Reuses the site's brand tokens; not part of the public site. */
+
+.sim-page {
+  padding-top: 140px;
+}
+
+.sim-banner {
+  max-width: 900px;
+  margin: 0 auto 36px;
+  padding: 14px 20px;
+  border: 1px dashed var(--color-gold);
+  background: var(--color-gold-tint);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.sim-banner code {
+  background: rgba(0, 0, 0, 0.06);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.82em;
+}
+
+.sim-gate {
+  max-width: 360px;
+  margin: 60px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sim-gate input {
+  padding: 12px 16px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+
+.sim-gate input:focus-visible {
+  border-color: var(--color-teal);
+}
+
+.sim-gate__error {
+  color: #b3432c;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.sim-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .sim-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sim-product-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 560px) {
+  .sim-product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sim-product-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 22px 22px 20px;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sim-product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 44px -22px rgba(30, 58, 95, 0.4);
+}
+
+.sim-product-card h3 {
+  font-size: 1.08rem;
+  margin-bottom: 6px;
+}
+
+.sim-product-card p {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin-bottom: 14px;
+}
+
+.sim-product-card__price {
+  font-family: var(--font-heading);
+  color: var(--color-navy);
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+}
+
+.sim-qty {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sim-qty button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-white);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.sim-qty button:hover {
+  border-color: var(--color-teal);
+  color: var(--color-teal);
+}
+
+.sim-qty span {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.sim-cart {
+  position: sticky;
+  top: 100px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-soft);
+}
+
+.sim-cart h2 {
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+}
+
+.sim-cart__empty {
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.sim-cart__line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border);
+  gap: 12px;
+}
+
+.sim-cart__total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--color-navy);
+  padding: 14px 0;
+}
+
+.sim-cart__label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.sim-cart__input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+}
+
+.sim-cart__input:focus-visible {
+  border-color: var(--color-teal);
+}
+
+.sim-cart__submit {
+  width: 100%;
+  justify-content: center;
+}
+
+.sim-cart__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sim-receipt-wrap {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.sim-receipt {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 36px 34px;
+  box-shadow: var(--shadow-soft);
+}
+
+.sim-receipt__head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.sim-receipt__title {
+  font-family: var(--font-heading);
+  color: var(--color-navy);
+  font-size: 1.2rem;
+}
+
+.sim-receipt__meta {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  letter-spacing: 0.03em;
+}
+
+.sim-receipt__badge {
+  display: inline-block;
+  background: var(--color-gold-tint);
+  color: #8a6a1f;
+  border-radius: var(--radius-pill);
+  padding: 5px 14px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.sim-receipt__rows {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 20px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sim-receipt__rows div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sim-receipt__rows span {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.55;
+}
+
+.sim-receipt__status {
+  color: var(--color-teal);
+}
+
+.sim-receipt__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  margin-bottom: 20px;
+}
+
+.sim-receipt__table th {
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.55;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sim-receipt__table td {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sim-receipt__table th:not(:first-child),
+.sim-receipt__table td:not(:first-child) {
+  text-align: right;
+}
+
+.sim-receipt__table tfoot td {
+  border-bottom: none;
+  border-top: 2px solid var(--color-navy);
+  font-weight: 700;
+  font-family: var(--font-heading);
+  color: var(--color-navy);
+  padding-top: 12px;
+}
+
+.sim-receipt__footnote {
+  font-size: 0.76rem;
+  opacity: 0.55;
+  margin: 0;
+}
+
+.sim-receipt__actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 26px;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #sim-receipt-print,
+  #sim-receipt-print * {
+    visibility: visible;
+  }
+  #sim-receipt-print {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: none;
+    border: none;
+  }
+}
+
 /* --- Cursor-following breathing ring ---------------------------------- */
 /* Trails the pointer; the ping ring pulses outward continuously. Pure
    decoration — pointer-events off so it never blocks interaction. */
