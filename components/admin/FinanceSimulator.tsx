@@ -79,6 +79,20 @@ function ReceiptView({
   receipt: Receipt;
   onNewSale: () => void;
 }) {
+  // The browser names a saved PDF after document.title, so give it a
+  // proper "Customer - Date - PAID" name for the print, then restore.
+  const printReceipt = () => {
+    const previousTitle = document.title;
+    const date = new Date(receipt.issuedAt).toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
+    document.title = `${receipt.customerName} - ${date} - PAID`;
+    window.print();
+    document.title = previousTitle;
+  };
+
   return (
     <div className="sim-receipt-wrap reveal" data-shown="true">
       <div className="sim-receipt" id="sim-receipt-print">
@@ -151,7 +165,7 @@ function ReceiptView({
       </div>
 
       <div className="sim-receipt__actions">
-        <button className="btn btn-ghost" onClick={() => window.print()}>
+        <button className="btn btn-ghost" onClick={printReceipt}>
           Print / Save PDF
         </button>
         <button className="btn btn-primary" onClick={onNewSale}>
