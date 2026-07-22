@@ -1,0 +1,51 @@
+import Link from "next/link";
+import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
+import SignOutButton from "@/components/admin/SignOutButton";
+
+const TABS = [
+  { href: "/admin", label: "Overview" },
+  { href: "/admin/content", label: "Site Content" },
+  { href: "/admin/posts", label: "Blog / News" },
+];
+
+export default async function AdminDashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  // Belt-and-suspenders: middleware already redirects unauthenticated
+  // requests to /admin/login, this covers the direct-render case too.
+  if (!user) {
+    redirect("/admin/login");
+  }
+
+  return (
+    <section className="section container sim-page">
+      <div className="admin-shell">
+        <header className="admin-shell__header">
+          <div>
+            <p className="admin-shell__eyebrow">DG Clinic Admin</p>
+            <p className="admin-shell__user">{user.email}</p>
+          </div>
+          <SignOutButton />
+        </header>
+
+        <nav className="admin-tabs" aria-label="Admin sections">
+          {TABS.map((tab) => (
+            <Link key={tab.href} href={tab.href} className="admin-tabs__link">
+              {tab.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="admin-shell__body">{children}</div>
+      </div>
+    </section>
+  );
+}

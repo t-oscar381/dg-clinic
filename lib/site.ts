@@ -44,6 +44,7 @@ export const NAV_CATEGORIES = [
 
 export const NAV_SECONDARY = [
   { href: "/our-story", label: "Our Story" },
+  { href: "/blog", label: "Blog" },
   { href: "/service-area", label: "Service Area & Contact" },
 ] as const;
 

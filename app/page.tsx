@@ -2,21 +2,34 @@ import Link from "next/link";
 import FourPathsSplit from "@/components/FourPathsSplit";
 import Reveal from "@/components/Reveal";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { getSiteContent, pick } from "@/lib/cms";
 
-export default function HomePage() {
+// Reads from Supabase on every request so admin edits at /admin/content
+// go live immediately — supabase-js's fetch isn't tracked by Next's
+// static-render analysis, so this must be explicit rather than assumed.
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const content = await getSiteContent("home");
+
   return (
     <>
-      {/* Hero */}
+      {/* Hero — eyebrow/subtitle are editable at /admin/content; the
+          headline keeps its teal-emphasis markup as code for now. */}
       <section className="hero container">
-        <span className="eyebrow">Premium Homecare Wellness · Jakarta</span>
+        <span className="eyebrow">
+          {pick(content, "hero_eyebrow", "Premium Homecare Wellness · Jakarta")}
+        </span>
         <h1>
           Premium Wellness, Delivered <span className="em-teal">Privately</span>{" "}
           to Your Door
         </h1>
         <p className="lede">
-          Since 2021, DG Clinic has brought doctor-led home-care to over 10,000
-          patients across Jakarta. No waiting rooms. No compromise on care.
-          Just medical treatment on your terms, in your own space.
+          {pick(
+            content,
+            "hero_subtitle",
+            "Since 2021, DG Clinic has brought doctor-led home-care to over 10,000 patients across Jakarta. No waiting rooms. No compromise on care. Just medical treatment on your terms, in your own space."
+          )}
         </p>
         <div className="hero-actions">
           <WhatsAppButton label="Message Us on WhatsApp" />
