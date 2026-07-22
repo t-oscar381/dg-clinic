@@ -4,9 +4,9 @@ import { createClient } from "@/lib/supabase/server";
 import SignOutButton from "@/components/admin/SignOutButton";
 
 const TABS = [
-  { href: "/admin", label: "Overview" },
-  { href: "/admin/content", label: "Site Content" },
-  { href: "/admin/posts", label: "Blog / News" },
+  { href: "/dgc-master", label: "Overview" },
+  { href: "/dgc-master/content", label: "Site Content" },
+  { href: "/dgc-master/posts", label: "Blog / News" },
 ];
 
 export default async function AdminDashboardLayout({
@@ -20,9 +20,9 @@ export default async function AdminDashboardLayout({
   } = await supabase.auth.getUser();
 
   // Belt-and-suspenders: middleware already redirects unauthenticated
-  // requests to /admin/login, this covers the direct-render case too.
+  // requests to /dgc-master/login, this covers the direct-render case too.
   if (!user) {
-    redirect("/admin/login");
+    redirect("/dgc-master/login");
   }
 
   return (

@@ -9,7 +9,7 @@ export default function SignOutButton() {
   const signOut = async () => {
     const supabase = createClient();
     await supabase.auth.signOut();
-    router.push("/admin/login");
+    router.push("/dgc-master/login");
     router.refresh();
   };
 

@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { createPost, deletePost, updatePost, type PostInput } from "@/app/admin/(dashboard)/posts/actions";
+import { createPost, deletePost, updatePost, type PostInput } from "@/app/dgc-master/(dashboard)/posts/actions";
 
 function slugify(title: string) {
   return title
@@ -64,7 +64,7 @@ export default function PostForm({
         setError(result.error);
         return;
       }
-      router.push("/admin/posts");
+      router.push("/dgc-master/posts");
       router.refresh();
     });
   };

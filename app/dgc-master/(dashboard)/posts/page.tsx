@@ -23,7 +23,7 @@ export default async function AdminPostsPage() {
             Write and publish posts. Live at /blog once published.
           </p>
         </div>
-        <Link href="/admin/posts/new" className="btn btn-primary btn-sm">
+        <Link href="/dgc-master/posts/new" className="btn btn-primary btn-sm">
           + New Post
         </Link>
       </div>
@@ -38,7 +38,7 @@ export default async function AdminPostsPage() {
         {posts?.map((post) => (
           <Link
             key={post.id}
-            href={`/admin/posts/${post.id}`}
+            href={`/dgc-master/posts/${post.id}`}
             className="admin-posts__row"
           >
             <span className={`post-status post-status--${post.status}`}>

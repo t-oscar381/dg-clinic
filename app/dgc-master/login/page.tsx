@@ -30,7 +30,7 @@ function LoginForm() {
       return;
     }
 
-    router.push(params.get("next") || "/admin");
+    router.push(params.get("next") || "/dgc-master");
     router.refresh();
   };
 

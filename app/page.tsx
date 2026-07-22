@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { getSiteContent, pick } from "@/lib/cms";
 
-// Reads from Supabase on every request so admin edits at /admin/content
+// Reads from Supabase on every request so admin edits at /dgc-master/content
 // go live immediately — supabase-js's fetch isn't tracked by Next's
 // static-render analysis, so this must be explicit rather than assumed.
 export const dynamic = "force-dynamic";
@@ -14,7 +14,7 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero — eyebrow/subtitle are editable at /admin/content; the
+      {/* Hero — eyebrow/subtitle are editable at /dgc-master/content; the
           headline keeps its teal-emphasis markup as code for now. */}
       <section className="hero container">
         <span className="eyebrow">

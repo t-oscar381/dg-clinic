@@ -105,5 +105,5 @@ export async function deletePost(id: string, slug: string) {
   if (error) return { error: error.message };
 
   revalidateBlog(slug);
-  redirect("/admin/posts");
+  redirect("/dgc-master/posts");
 }

@@ -3,9 +3,9 @@ import { NextResponse, type NextRequest } from "next/server";
 
 /*
  * Refreshes the Supabase session on every request and gates
- * /admin/* routes (except /admin/login) behind a signed-in session.
+ * /dgc-master/* routes (except /dgc-master/login) behind a signed-in session.
  * The RLS admins-allowlist is the real authorization boundary — this
- * only decides whether to bounce an anonymous visitor to /admin/login.
+ * only decides whether to bounce an anonymous visitor to /dgc-master/login.
  */
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });
@@ -36,10 +36,10 @@ export async function updateSession(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   const path = request.nextUrl.pathname;
-  const isAdminRoute = path.startsWith("/admin") && path !== "/admin/login";
+  const isAdminRoute = path.startsWith("/dgc-master") && path !== "/dgc-master/login";
 
   if (isAdminRoute && !user) {
-    const loginUrl = new URL("/admin/login", request.url);
+    const loginUrl = new URL("/dgc-master/login", request.url);
     loginUrl.searchParams.set("next", path);
     return NextResponse.redirect(loginUrl);
   }

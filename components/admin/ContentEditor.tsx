@@ -6,7 +6,7 @@ import {
   createContentBlock,
   deleteContentBlock,
   updateContentBlock,
-} from "@/app/admin/(dashboard)/content/actions";
+} from "@/app/dgc-master/(dashboard)/content/actions";
 
 export type ContentRow = {
   id: string;
