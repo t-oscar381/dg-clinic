@@ -28,22 +28,36 @@ const KNOWN_PAGES = [
   "service-area",
 ];
 
-function EditableRow({ row }: { row: ContentRow }) {
+type SaveStatus = "idle" | "saving" | "saved" | "error";
+
+function TableRow({ row }: { row: ContentRow }) {
   const router = useRouter();
+  // savedValue only updates after a successful save, so the "Previous
+  // Content" column stays a true before/after comparison while editing.
+  const [savedValue, setSavedValue] = useState(row.value);
   const [value, setValue] = useState(row.value);
+  const [expanded, setExpanded] = useState(false);
   const [pending, startTransition] = useTransition();
-  const [status, setStatus] = useState<"idle" | "saved" | "error">("idle");
-  const dirty = value !== row.value;
+  const [status, setStatus] = useState<SaveStatus>("idle");
+  const dirty = value !== savedValue;
+  const isRichtext = row.content_type === "richtext";
 
   const save = () => {
+    setStatus("saving");
     startTransition(async () => {
       const result = await updateContentBlock({
         id: row.id,
         page: row.page,
         value,
       });
-      setStatus("success" in result ? "saved" : "error");
-      setTimeout(() => setStatus("idle"), 2000);
+      if ("success" in result) {
+        setSavedValue(value);
+        setStatus("saved");
+        setExpanded(false);
+        setTimeout(() => setStatus("idle"), 2000);
+      } else {
+        setStatus("error");
+      }
       router.refresh();
     });
   };
@@ -57,41 +71,55 @@ function EditableRow({ row }: { row: ContentRow }) {
   };
 
   return (
-    <div className="content-row">
-      <div className="content-row__head">
-        <label>{row.label}</label>
-        <span className="content-row__key">{row.section_key}</span>
-      </div>
-      <textarea
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        rows={row.content_type === "richtext" ? 5 : 2}
-      />
-      <div className="content-row__actions">
-        {status === "saved" && (
-          <span className="content-row__status is-saved">Saved</span>
+    <tr className="content-table__row">
+      <td className="content-table__label">
+        <span className="content-table__label-text">{row.label}</span>
+        <span className="content-table__key">{row.section_key}</span>
+      </td>
+      <td className="content-table__prev">{savedValue || "—"}</td>
+      <td className="content-table__new">
+        {isRichtext ? (
+          <textarea
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            onFocus={() => setExpanded(true)}
+            onBlur={() => {
+              if (!dirty) setExpanded(false);
+            }}
+            rows={expanded ? 6 : 2}
+          />
+        ) : (
+          <input value={value} onChange={(e) => setValue(e.target.value)} />
         )}
-        {status === "error" && (
-          <span className="content-row__status is-error">Failed to save</span>
-        )}
-        <button
-          type="button"
-          className="btn btn-ghost btn-sm"
-          onClick={remove}
-          disabled={pending}
-        >
-          Delete
-        </button>
+      </td>
+      <td className="content-table__save">
         <button
           type="button"
           className="btn btn-primary btn-sm"
           onClick={save}
           disabled={!dirty || pending}
         >
-          {pending ? "Saving…" : "Save"}
+          {status === "saving"
+            ? "Loading…"
+            : status === "saved"
+              ? "Updated!"
+              : "Save"}
         </button>
-      </div>
-    </div>
+        {status === "error" && (
+          <span className="content-table__error">Failed</span>
+        )}
+        <button
+          type="button"
+          className="content-table__delete"
+          onClick={remove}
+          disabled={pending}
+          aria-label={`Delete ${row.label}`}
+          title="Delete"
+        >
+          ×
+        </button>
+      </td>
+    </tr>
   );
 }
 
@@ -220,18 +248,33 @@ export default function ContentEditor({ rows }: { rows: ContentRow[] }) {
         ))}
       </div>
 
-      <div className="content-list">
-        {visibleRows.length === 0 && (
-          <p className="sim-cart__empty">
-            No content blocks yet for &ldquo;{activePage}&rdquo;.
-          </p>
-        )}
-        {visibleRows.map((row) => (
-          <EditableRow key={row.id} row={row} />
-        ))}
-      </div>
+      {visibleRows.length === 0 ? (
+        <p className="sim-cart__empty">
+          No content blocks yet for &ldquo;{activePage}&rdquo;.
+        </p>
+      ) : (
+        <div className="content-table-wrap">
+          <table className="content-table">
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Previous Content</th>
+                <th>New Content</th>
+                <th>Save</th>
+              </tr>
+            </thead>
+            <tbody>
+              {visibleRows.map((row) => (
+                <TableRow key={row.id} row={row} />
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
 
-      <NewBlockForm page={activePage} />
+      <div style={{ marginTop: 16 }}>
+        <NewBlockForm page={activePage} />
+      </div>
     </div>
   );
 }
