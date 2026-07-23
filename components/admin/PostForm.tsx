@@ -112,6 +112,12 @@ export default function PostForm({
           rows={2}
           placeholder="Short summary shown on the blog listing…"
         />
+        <span
+          className={`post-form__hint ${excerpt.length > 140 ? "is-over" : ""}`}
+        >
+          {excerpt.length}/140 — keep it short so blog cards stay a
+          consistent height
+        </span>
       </div>
 
       <div className="post-form__row">

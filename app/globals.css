@@ -1372,14 +1372,8 @@ svg {
 
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 26px;
-}
-
-@media (max-width: 900px) {
-  .blog-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .blog-card {
@@ -1713,6 +1707,12 @@ svg {
   opacity: 0.55;
   margin-top: 4px;
   font-family: monospace;
+}
+
+.post-form__hint.is-over {
+  opacity: 1;
+  color: #b3432c;
+  font-family: var(--font-body);
 }
 
 .post-form__grid {
