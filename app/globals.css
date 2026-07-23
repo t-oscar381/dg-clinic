@@ -2218,3 +2218,185 @@ svg {
     animation: none;
   }
 }
+
+/* ── Knowledge Bank (admin) ─────────────────────────────────────────────── */
+.kb-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+}
+
+.kb-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  min-width: 860px;
+}
+
+.kb-table thead th {
+  text-align: left;
+  padding: 12px 14px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.6;
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.kb-row td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.kb-cell--date {
+  white-space: nowrap;
+  opacity: 0.75;
+  font-size: 0.82rem;
+}
+
+.kb-cell--topic {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Keep the Knowledge column from stretching the table too wide. */
+.kb-cell--knowledge {
+  max-width: 380px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.kb-summary-link {
+  background: none;
+  border: none;
+  color: var(--color-teal);
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.kb-table__actions-col {
+  text-align: right;
+}
+
+.kb-table__actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  white-space: nowrap;
+}
+
+.kb-delete {
+  color: #b23b3b;
+}
+
+.kb-raw-row td {
+  padding: 0 14px 14px;
+  background: var(--color-teal-tint);
+}
+
+.kb-raw {
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  border: 1px dashed var(--color-border);
+}
+
+.kb-raw__label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.6;
+}
+
+.kb-raw__text {
+  margin: 6px 0 0;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+/* WhatsApp-style summary popup */
+.kb-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.kb-modal__panel {
+  width: 100%;
+  max-width: 420px;
+  background: #e5ddd5;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.kb-modal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+.kb-modal__topic {
+  font-weight: 600;
+}
+
+.kb-modal__close {
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.kb-chat {
+  padding: 18px 14px;
+}
+
+.kb-bubble {
+  position: relative;
+  max-width: 85%;
+  margin-left: auto;
+  background: #dcf8c6;
+  border-radius: 10px;
+  padding: 10px 12px 18px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+}
+
+.kb-bubble__key {
+  margin: 0 0 6px;
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.kb-bubble__body {
+  margin: 0;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.kb-bubble__time {
+  position: absolute;
+  right: 10px;
+  bottom: 4px;
+  font-size: 0.66rem;
+  opacity: 0.55;
+}
