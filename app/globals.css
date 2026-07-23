@@ -2007,45 +2007,6 @@ svg {
   margin-top: 26px;
 }
 
-@media print {
-  @page {
-    size: A4;
-    margin: 16mm;
-  }
-  body {
-    background: #fff;
-  }
-  body * {
-    visibility: hidden;
-  }
-  #sim-receipt-print,
-  #sim-receipt-print * {
-    visibility: visible;
-  }
-  /* position:fixed anchors to the printed page box, so the receipt
-     starts at the top of the A4 sheet at full width regardless of
-     where it sat in the scrolled page. */
-  #sim-receipt-print {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    box-shadow: none;
-    border: none;
-    border-radius: 0;
-    font-size: 12pt;
-  }
-  #sim-receipt-print .sim-receipt__table {
-    font-size: 11pt;
-  }
-  #sim-receipt-print .sim-receipt__head img {
-    height: 64px;
-  }
-}
-
 /* --- Cursor-following breathing ring ---------------------------------- */
 /* Trails the pointer; the ping ring pulses outward continuously. Pure
    decoration — pointer-events off so it never blocks interaction. */

@@ -79,18 +79,44 @@ function ReceiptView({
   receipt: Receipt;
   onNewSale: () => void;
 }) {
-  // The browser names a saved PDF after document.title, so give it a
-  // proper "Customer - Date - PAID" name for the print, then restore.
-  const printReceipt = () => {
-    const previousTitle = document.title;
-    const date = new Date(receipt.issuedAt).toLocaleDateString("en-GB", {
-      day: "2-digit",
-      month: "short",
-      year: "numeric",
-    });
-    document.title = `${receipt.customerName} - ${date} - PAID`;
-    window.print();
-    document.title = previousTitle;
+  const [downloading, setDownloading] = useState(false);
+  const [downloadError, setDownloadError] = useState<string | null>(null);
+
+  // Server-rendered PDF, not the browser's print engine — window.print()
+  // let different browsers/OS print dialogs override our layout with
+  // their own default margins/scaling, which is what pushed the
+  // receipt off-center. react-pdf produces the exact same bytes every
+  // time, regardless of the client.
+  const downloadPdf = async () => {
+    setDownloading(true);
+    setDownloadError(null);
+    try {
+      const res = await fetch("/api/admin/receipt-pdf", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(receipt),
+      });
+      if (!res.ok) throw new Error("Failed to generate PDF");
+
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      const date = new Date(receipt.issuedAt).toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      });
+      a.href = url;
+      a.download = `${receipt.customerName} - ${date} - PAID.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    } catch {
+      setDownloadError("Couldn't generate the PDF. Try again.");
+    } finally {
+      setDownloading(false);
+    }
   };
 
   return (
@@ -164,9 +190,18 @@ function ReceiptView({
         </p>
       </div>
 
+      {downloadError && (
+        <p className="sim-gate__error" style={{ textAlign: "center" }}>
+          {downloadError}
+        </p>
+      )}
       <div className="sim-receipt__actions">
-        <button className="btn btn-ghost" onClick={printReceipt}>
-          Print / Save PDF
+        <button
+          className="btn btn-ghost"
+          onClick={downloadPdf}
+          disabled={downloading}
+        >
+          {downloading ? "Generating…" : "Download PDF"}
         </button>
         <button className="btn btn-primary" onClick={onNewSale}>
           Start New Sale
