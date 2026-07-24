@@ -7,6 +7,7 @@ const TABS = [
   { href: "/dgc-master", label: "Overview" },
   { href: "/dgc-master/content", label: "Site Content" },
   { href: "/dgc-master/posts", label: "Blog / News" },
+  { href: "/dgc-master/records", label: "Patient Records" },
   { href: "/dgc-master/knowledge", label: "Knowledge Bank" },
 ];
 
