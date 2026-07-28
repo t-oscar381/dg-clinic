@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function FinanceSimulatorPage() {
   return (
-    <section className="section container sim-page">
+    <section className="section-tight container sim-page">
       <div className="sim-banner">
         <strong>Internal tool — not part of the public site.</strong>{" "}
         Simulates the cart → Paper.id payment → receipt flow with no real

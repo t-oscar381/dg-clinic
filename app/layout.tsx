@@ -1,9 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat, Playfair_Display } from "next/font/google";
-import CursorRing from "@/components/CursorRing";
-import FloatingActions from "@/components/FloatingActions";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
+import SiteChrome from "@/components/SiteChrome";
 import {
   INSTAGRAM_URL,
   LEGAL_NAME,
@@ -94,11 +91,7 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        <SiteHeader />
-        <main id="main-content">{children}</main>
-        <SiteFooter />
-        <FloatingActions />
-        <CursorRing />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

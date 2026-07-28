@@ -1,15 +1,8 @@
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { LOGO_SRC } from "@/lib/site";
+import AdminSidebarNav from "@/components/admin/AdminSidebarNav";
 import SignOutButton from "@/components/admin/SignOutButton";
-
-const TABS = [
-  { href: "/dgc-master", label: "Overview" },
-  { href: "/dgc-master/content", label: "Site Content" },
-  { href: "/dgc-master/posts", label: "Blog / News" },
-  { href: "/dgc-master/records", label: "Patient Records" },
-  { href: "/dgc-master/knowledge", label: "Knowledge Bank" },
-];
 
 export default async function AdminDashboardLayout({
   children,
@@ -28,26 +21,30 @@ export default async function AdminDashboardLayout({
   }
 
   return (
-    <section className="section container sim-page">
-      <div className="admin-shell">
-        <header className="admin-shell__header">
+    <div className="admin-app">
+      <aside className="admin-sidebar">
+        <div className="admin-sidebar__brand">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={LOGO_SRC} alt="" className="admin-sidebar__logo" />
           <div>
-            <p className="admin-shell__eyebrow">DG Clinic Admin</p>
-            <p className="admin-shell__user">{user.email}</p>
+            <p className="admin-sidebar__title">DG Clinic</p>
+            <p className="admin-sidebar__subtitle">Admin</p>
           </div>
+        </div>
+
+        <AdminSidebarNav />
+
+        <div className="admin-sidebar__footer">
+          <p className="admin-sidebar__user" title={user.email}>
+            {user.email}
+          </p>
           <SignOutButton />
-        </header>
+        </div>
+      </aside>
 
-        <nav className="admin-tabs" aria-label="Admin sections">
-          {TABS.map((tab) => (
-            <Link key={tab.href} href={tab.href} className="admin-tabs__link">
-              {tab.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="admin-shell__body">{children}</div>
-      </div>
-    </section>
+      <main className="admin-main">
+        <div className="admin-main__body">{children}</div>
+      </main>
+    </div>
   );
 }

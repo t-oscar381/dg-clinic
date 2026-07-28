@@ -1258,63 +1258,175 @@ svg {
   margin-top: 10px;
 }
 
-/* --- Admin shell (CMS dashboard) --------------------------------------- */
+/* --- Admin shell (internal app — deliberately NOT the marketing site) --- */
+/* A dedicated left-sidebar app frame, matching how Mekari/Qontak-style tools
+   separate themselves from the customer-facing site: no public nav, no
+   footer, no floating WhatsApp bubble (see SiteChrome.tsx), full-width
+   content instead of the 960px marketing container. Neutral ground is a
+   cool near-white with a whisper of teal (not the marketing site's warm
+   beige) — a deliberate, chosen distinction between "the tool" and "the
+   brand site", not an oversight. */
 
-.admin-shell {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-.admin-shell__header {
+.admin-app {
   display: flex;
-  justify-content: space-between;
+  min-height: 100vh;
+  background: #fafcfb;
+  color: var(--color-ink);
+}
+
+.admin-sidebar {
+  width: 264px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  border-right: 1px solid var(--color-border);
+  padding: 24px 16px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.admin-sidebar__brand {
+  display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 10px;
+  padding: 4px 10px 20px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
 }
 
-.admin-shell__eyebrow {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-teal);
-  margin-bottom: 2px;
+.admin-sidebar__logo {
+  height: 34px;
+  width: auto;
+  flex-shrink: 0;
 }
 
-.admin-shell__user {
+.admin-sidebar__title {
   font-family: var(--font-heading);
   color: var(--color-navy);
-  font-size: 1.1rem;
+  font-size: 1rem;
+  line-height: 1.2;
 }
 
-.admin-tabs {
+.admin-sidebar__subtitle {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-teal);
+}
+
+.admin-sidebar__nav {
   display: flex;
-  gap: 8px;
-  border-bottom: 1px solid var(--color-border);
-  margin-bottom: 32px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.admin-tabs__link {
-  padding: 10px 16px;
+.admin-sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
   text-decoration: none;
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--color-navy);
   opacity: 0.65;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -1px;
-  transition: opacity 0.2s ease, border-color 0.2s ease;
+  border-left: 3px solid transparent;
+  transition: opacity 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
 }
 
-.admin-tabs__link:hover {
-  opacity: 1;
+.admin-sidebar__link svg {
+  flex-shrink: 0;
 }
 
-.admin-tabs__link.is-active {
+.admin-sidebar__link:hover {
   opacity: 1;
-  border-bottom-color: var(--color-teal);
+  background: var(--color-teal-tint);
+}
+
+.admin-sidebar__link.is-active {
+  opacity: 1;
+  color: var(--color-navy);
+  background: var(--color-teal-tint);
+  border-left-color: var(--color-teal);
+}
+
+.admin-sidebar__footer {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-sidebar__user {
+  font-size: 0.76rem;
+  opacity: 0.65;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 4px;
+}
+
+.admin-sidebar__footer .btn {
+  width: 100%;
+}
+
+.admin-main {
+  flex: 1;
+  min-width: 0;
+  padding: 40px 44px;
+}
+
+.admin-main__body {
+  max-width: 1320px;
+}
+
+@media (max-width: 900px) {
+  .admin-app {
+    flex-direction: column;
+  }
+  .admin-sidebar {
+    position: static;
+    height: auto;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 14px 16px;
+  }
+  .admin-sidebar__brand {
+    border-bottom: none;
+    padding: 0;
+    margin: 0;
+  }
+  .admin-sidebar__nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: auto;
+  }
+  .admin-sidebar__link span {
+    display: none;
+  }
+  .admin-sidebar__footer {
+    flex-basis: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+  .admin-sidebar__footer .btn {
+    width: auto;
+  }
+  .admin-main {
+    padding: 24px 20px;
+  }
 }
 
 .admin-overview h1 {

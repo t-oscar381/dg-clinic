@@ -65,7 +65,7 @@ function LoginForm() {
 
 export default function AdminLoginPage() {
   return (
-    <section className="section container sim-page">
+    <section className="section-tight container sim-page">
       <Suspense fallback={null}>
         <LoginForm />
       </Suspense>
