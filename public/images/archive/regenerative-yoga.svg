@@ -1,0 +1,48 @@
+<svg viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgY" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F7F3EC"/>
+      <stop offset="1" stop-color="#F6EFDF"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#bgY)"/>
+
+  <!-- halo + concentric circles behind figure -->
+  <circle cx="400" cy="420" r="160" fill="#C9A24B" opacity="0.10"/>
+  <circle cx="400" cy="420" r="160" fill="none" stroke="#C9A24B" stroke-width="3" opacity="0.35"/>
+  <circle cx="400" cy="420" r="220" fill="none" stroke="#C9A24B" stroke-width="3" opacity="0.20"/>
+  <circle cx="400" cy="420" r="280" fill="none" stroke="#4FBDAE" stroke-width="3" opacity="0.14"/>
+
+  <!-- sparkle accents -->
+  <circle cx="168" cy="292" r="5" fill="#C9A24B" opacity="0.55"/>
+  <circle cx="648" cy="248" r="4" fill="#C9A24B" opacity="0.45"/>
+  <circle cx="612" cy="742" r="5" fill="#4FBDAE" opacity="0.4"/>
+  <circle cx="156" cy="690" r="4" fill="#4FBDAE" opacity="0.35"/>
+
+  <!-- figure: seated lotus, silhouette -->
+  <!-- hair bun -->
+  <circle cx="400" cy="202" r="22" fill="#1E3A5F"/>
+  <!-- head -->
+  <circle cx="400" cy="268" r="46" fill="#1E3A5F"/>
+  <!-- neck -->
+  <rect x="390" y="304" width="20" height="28" fill="#1E3A5F"/>
+  <!-- torso with waist -->
+  <path d="M346 340 C334 346 328 358 326 372 C320 430 322 492 334 558 L466 558 C478 492 480 430 474 372 C472 358 466 346 454 340 C436 332 364 332 346 340 Z" fill="#1E3A5F"/>
+  <!-- arms flowing out to knees -->
+  <path d="M348 376 C296 448 262 526 246 592" stroke="#1E3A5F" stroke-width="24" fill="none" stroke-linecap="round"/>
+  <path d="M452 376 C504 448 538 526 554 592" stroke="#1E3A5F" stroke-width="24" fill="none" stroke-linecap="round"/>
+  <!-- hands with gold mudra dots -->
+  <circle cx="246" cy="600" r="16" fill="#1E3A5F"/>
+  <circle cx="554" cy="600" r="16" fill="#1E3A5F"/>
+  <circle cx="246" cy="592" r="5" fill="#C9A24B"/>
+  <circle cx="554" cy="592" r="5" fill="#C9A24B"/>
+  <!-- crossed legs -->
+  <path d="M196 636 C280 552 520 552 604 636 C520 702 280 702 196 636 Z" fill="#1E3A5F"/>
+  <!-- yoga-wear accents -->
+  <path d="M352 420 Q400 436 448 420" stroke="#C9A24B" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M336 550 Q400 574 464 550" stroke="#C9A24B" stroke-width="9" fill="none" stroke-linecap="round"/>
+
+  <!-- ground shadow -->
+  <ellipse cx="400" cy="700" rx="215" ry="26" fill="#1E3A5F" opacity="0.07"/>
+</svg>
