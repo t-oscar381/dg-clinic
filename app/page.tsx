@@ -5,7 +5,7 @@ import InstagramGrid from "@/components/InstagramGrid";
 import Reveal from "@/components/Reveal";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { getSiteContent, pick } from "@/lib/cms";
-import { INSTAGRAM_HANDLE, waLink } from "@/lib/site";
+import { INSTAGRAM_HANDLE, INSTAGRAM_URL, waLink } from "@/lib/site";
 
 // Reads from Supabase, then serves the cached page for 5 minutes before
 // re-rendering — admin edits at /dgc-master/content go live within that
@@ -150,11 +150,21 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Instagram grid — static curated tiles for v1, per
-          docs/HANDOFF-rebrand.md §3.3. */}
+      {/* Instagram grid — live feed from @dg.clinic.hnw, with a mandatory
+          static fallback. See docs/HANDOFF-instagram-feed.md. */}
       <section className="section container center">
         <Reveal>
-          <span className="eyebrow">{INSTAGRAM_HANDLE}</span>
+          {/* Layer 4 of the failsafe (§4.1): the section heading itself
+              links out, so there's always one working route to the
+              account even if every tile below is degraded. */}
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="eyebrow"
+          >
+            {INSTAGRAM_HANDLE}
+          </a>
           <h2>Follow Along on Instagram</h2>
         </Reveal>
         <Reveal delay={90}>

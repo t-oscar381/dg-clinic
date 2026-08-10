@@ -1860,6 +1860,45 @@ svg {
   margin: 0;
 }
 
+.admin-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-soft);
+  max-width: 560px;
+}
+
+.admin-hint {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin: 10px 0 0;
+}
+
+.admin-error {
+  color: #b3261e;
+  font-size: 0.9rem;
+  margin: 14px 0 0;
+}
+
+.admin-kv {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 16px;
+  margin: 18px 0 0;
+  font-size: 0.88rem;
+}
+
+.admin-kv dt {
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.admin-kv dd {
+  margin: 0;
+  word-break: break-word;
+}
+
 /* --- Public blog ---------------------------------------------------------- */
 
 .blog-grid {

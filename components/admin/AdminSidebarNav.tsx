@@ -9,6 +9,7 @@ const TABS = [
   { href: "/dgc-master/posts", label: "Blog / News", icon: IconEdit },
   { href: "/dgc-master/records", label: "Patient Records", icon: IconTable },
   { href: "/dgc-master/knowledge", label: "Knowledge Bank", icon: IconBook },
+  { href: "/dgc-master/instagram", label: "Instagram Feed", icon: IconInstagram },
 ] as const;
 
 export default function AdminSidebarNav() {
@@ -103,6 +104,16 @@ function IconBook() {
         strokeWidth="1.5"
         strokeLinejoin="round"
       />
+    </svg>
+  );
+}
+
+function IconInstagram() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <rect x="2.5" y="2.5" width="15" height="15" rx="4" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="10" cy="10" r="3.6" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="14.3" cy="5.7" r="0.9" fill="currentColor" />
     </svg>
   );
 }
