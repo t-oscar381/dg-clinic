@@ -4,6 +4,11 @@ export const LEGAL_NAME = "Denish Gunawan Clinic";
 export const LOGO_SRC = "/logo/Logo.svg";
 export const TAGLINE = "Hospital-Level Excellence. Boutique-Level Care.";
 
+// DOKDEN is a website/wordmark name only — not a legal or entity rename.
+// SITE_NAME / LEGAL_NAME above stay unchanged; this is additive. See
+// docs/HANDOFF-rebrand.md §0.1 before touching any naming constant.
+export const WORDMARK = "DOKDEN";
+
 // Set NEXT_PUBLIC_SITE_URL in Vercel once the production domain is known.
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://dgclinic.example.com";
@@ -42,13 +47,22 @@ export const NAV_CATEGORIES = [
   { href: "/aesthetics-hair-growth", label: "Aesthetics & Hair Growth" },
 ] as const;
 
+// Header nav (DOKDEN rebrand, HANDOFF-rebrand.md §2). Hrefs are unchanged
+// from the previous site — only labels moved — so no redirects are needed.
 export const NAV_SECONDARY = [
-  { href: "/our-story", label: "Our Story" },
-  { href: "/blog", label: "Blog" },
-  { href: "/service-area", label: "Service Area & Contact" },
+  { href: "/our-story", label: "About Dr. Denish" },
+  { href: "/service-area", label: "Request Consultation" },
 ] as const;
 
-export const NAV_ITEMS = [...NAV_CATEGORIES, ...NAV_SECONDARY] as const;
+// Blog moved out of the header into the footer only (§2); the route and
+// posts are untouched.
+export const NAV_FOOTER_ONLY = [{ href: "/blog", label: "Blog" }] as const;
+
+export const NAV_ITEMS = [
+  ...NAV_CATEGORIES,
+  ...NAV_SECONDARY,
+  ...NAV_FOOTER_ONLY,
+] as const;
 
 export const SERVICE_REGIONS = [
   {

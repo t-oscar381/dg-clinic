@@ -28,7 +28,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "DG Clinic — Premium Homecare Wellness in Jakarta",
+  // Display title only — SITE_NAME/LEGAL_NAME below are unchanged.
+  title: "DOKDEN — Private Physician Services | Denish Gunawan Clinic",
   description:
     "DG Clinic brings doctor-led home-care to Jakarta — infusion, regenerative therapy, metabolic wellness, and aesthetics, delivered privately to your door. Trusted since 2021.",
   openGraph: {
@@ -42,7 +43,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalBusiness",
   name: SITE_NAME,
-  alternateName: "DG Clinic",
+  alternateName: ["DOKDEN", "DG Clinic"],
   legalName: LEGAL_NAME,
   url: SITE_URL,
   slogan: "Hospital-Level Excellence. Boutique-Level Care.",
