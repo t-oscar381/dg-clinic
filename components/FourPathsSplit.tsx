@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -90,12 +91,12 @@ export default function FourPathsSplit() {
           onFocus={() => setActive(panel.href)}
           onClick={handleClick(panel.href)}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             className="split-img"
             src={panel.image}
             alt={panel.alt}
-            loading="lazy"
+            fill
+            sizes="(max-width: 900px) 100vw, (max-width: 1200px) 50vw, 25vw"
           />
           <div className="split-overlay" />
           <div className="split-content">

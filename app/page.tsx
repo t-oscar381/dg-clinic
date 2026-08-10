@@ -4,10 +4,11 @@ import Reveal from "@/components/Reveal";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { getSiteContent, pick } from "@/lib/cms";
 
-// Reads from Supabase on every request so admin edits at /dgc-master/content
-// go live immediately — supabase-js's fetch isn't tracked by Next's
-// static-render analysis, so this must be explicit rather than assumed.
-export const dynamic = "force-dynamic";
+// Reads from Supabase, then serves the cached page for 5 minutes before
+// re-rendering — admin edits at /dgc-master/content go live within that
+// window instead of on every single request (supabase-js's fetch isn't
+// tracked by Next's static-render analysis, so this must be explicit).
+export const revalidate = 300;
 
 export default async function HomePage() {
   const content = await getSiteContent("home");

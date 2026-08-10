@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
@@ -11,14 +12,13 @@ export default function OurStoryPage() {
   return (
     <>
       <section className="hero container">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/images/founder.avif"
           alt="dr. Denish Gunawan, MPH — founder of Denish Gunawan Clinic"
           className="portrait-photo"
           width={200}
           height={200}
-          fetchPriority="high"
+          priority
         />
         <span className="eyebrow">Our Story</span>
         <h1>Meet the Man Behind DG Clinic</h1>
