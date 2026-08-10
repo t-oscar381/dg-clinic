@@ -55,6 +55,9 @@ export default async function BlogPostPage({
 
       <section className="section-tight container">
         {post.cover_image_url && (
+          // Covers are arbitrary admin-supplied remote URLs (any host), so
+          // next/image would need an open-ended remotePatterns allowlist —
+          // not worth the risk for a CMS field. Plain img is deliberate.
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={post.cover_image_url}

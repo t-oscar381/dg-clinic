@@ -38,6 +38,10 @@ export default async function BlogIndexPage() {
               className="blog-card"
             >
               {post.cover_image_url && (
+                // Covers are arbitrary admin-supplied remote URLs (any host),
+                // so next/image would need an open-ended remotePatterns
+                // allowlist — not worth the risk for a CMS field. Plain img
+                // is deliberate here, not an oversight.
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={post.cover_image_url}
