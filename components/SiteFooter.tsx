@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import LocationMap from "@/components/LocationMap";
 import {
@@ -9,6 +10,7 @@ import {
   TAGLINE,
   WHATSAPP_DISPLAY,
   WHATSAPP_URL,
+  WORDMARK,
 } from "@/lib/site";
 
 export default function SiteFooter() {
@@ -16,11 +18,11 @@ export default function SiteFooter() {
     <footer className="site-footer">
       <div className="container footer-inner">
         <div className="footer-brand">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={LOGO_SRC}
             alt={SITE_NAME}
             className="footer-logo"
+            width={171}
             height={88}
             loading="lazy"
           />
@@ -85,6 +87,11 @@ export default function SiteFooter() {
           </a>
         </p>
         <p>Full pricing and quotes are shared via WhatsApp.</p>
+        {/* DOKDEN is the website wordmark only — not a legal or entity name.
+            See docs/HANDOFF-rebrand.md §0.1. */}
+        <span className="footer-wordmark" aria-hidden="true">
+          {WORDMARK}
+        </span>
       </div>
     </footer>
   );

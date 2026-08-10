@@ -1,8 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 import FourPathsSplit from "@/components/FourPathsSplit";
+import InstagramGrid from "@/components/InstagramGrid";
 import Reveal from "@/components/Reveal";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { getSiteContent, pick } from "@/lib/cms";
+import { INSTAGRAM_HANDLE, waLink } from "@/lib/site";
 
 // Reads from Supabase, then serves the cached page for 5 minutes before
 // re-rendering — admin edits at /dgc-master/content go live within that
@@ -15,58 +18,85 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero — eyebrow/subtitle are editable at /dgc-master/content; the
-          headline keeps its teal-emphasis markup as code for now. */}
-      <section className="hero container">
-        <span className="eyebrow">
-          {pick(content, "hero_eyebrow", "Premium Homecare Wellness · Jakarta")}
-        </span>
-        <h1>
-          Premium Wellness, Delivered <span className="em-teal">Privately</span>{" "}
-          to Your Door
-        </h1>
-        <p className="lede">
-          {pick(
-            content,
-            "hero_subtitle",
-            "Since 2021, DG Clinic has brought doctor-led home-care to over 10,000 patients across Jakarta. No waiting rooms. No compromise on care. Just medical treatment on your terms, in your own space."
-          )}
-        </p>
-        <div className="hero-actions">
-          <WhatsAppButton label="Message Us on WhatsApp" />
-          <Link href="/infusion-therapy" className="btn btn-ghost">
-            Explore Treatments
-          </Link>
+      {/* Hero — full-bleed image per docs/HANDOFF-rebrand.md §3.1. Eyebrow
+          and subtitle stay editable at /dgc-master/content; the headline is
+          the approved copy and stays as code. */}
+      <section className="dk-hero">
+        <div className="dk-hero-media">
+          <Image
+            src="/images/dokden/hero-home-visit.webp"
+            alt="Physician arriving for a private home visit"
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: "cover" }}
+          />
+          <div className="dk-hero-scrim" />
         </div>
-        <div className="trust-line">
-          <span>Est. 2021</span>
-          <span>10,000+ Patients Served</span>
-          <span>Doctor-Only Dispatch</span>
-        </div>
-      </section>
-
-      {/* Four-category architecture — the site's core structure */}
-      <section className="section container">
-        <Reveal>
-          <div className="center">
-            <h2>Four Paths to Better Health</h2>
-            <p className="lede">
-              Whether you need daily wellness support or advanced regenerative
-              care, DG Clinic brings the right treatment to you.
-            </p>
-          </div>
-        </Reveal>
-        <Reveal delay={90}>
-          <FourPathsSplit />
-          <p className="split-hint">
-            Hover or tap a path to bring it into focus — select again to
-            explore.
+        <div className="container dk-hero-content">
+          <span className="eyebrow">
+            {pick(content, "hero_eyebrow", "Premium Homecare Wellness · Jakarta")}
+          </span>
+          <h1 className="dk-hero-headline">
+            Private Physician Services.
+            <br />
+            Uncompromising Care.
+          </h1>
+          <p className="lede">
+            {pick(
+              content,
+              "hero_subtitle",
+              "Doctor-led homecare across Greater Jakarta."
+            )}
           </p>
-        </Reveal>
+          <div className="hero-actions">
+            <a
+              href={waLink("Hello DOKDEN — I'd like to request a doctor dispatch.")}
+              className="btn btn-gold"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Dispatch a Doctor
+            </a>
+            <Link href="/infusion-therapy" className="btn btn-ghost">
+              Explore Treatments
+            </Link>
+          </div>
+          <div className="trust-line">
+            <span>Est. 2021</span>
+            <span>10,000+ Patients Served</span>
+            <span>Doctor-Only Dispatch</span>
+          </div>
+        </div>
       </section>
 
-      {/* Why DG Clinic — navy trust block */}
-      <section className="navy-block">
+      {/* Showcase — mapped to the four real service categories, per
+          docs/HANDOFF-rebrand.md §3.2 and docs/HANDOFF-showcase.md. */}
+      <section className="dk-capability-band">
+        <div className="container">
+          <Reveal>
+            <div className="center">
+              <span className="eyebrow">What We Offer</span>
+              <h2>Four Paths to Better Health</h2>
+              <p className="lede">
+                Whether you need daily wellness support or advanced
+                regenerative care, DG Clinic brings the right treatment to
+                you.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={90}>
+            <FourPathsSplit />
+            <p className="split-hint">
+              Hover or tap a path to explore.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Why DG Clinic — restyled to the DOKDEN dark band, content unchanged
+          per docs/HANDOFF-rebrand.md §3, §5 stage 5. */}
+      <section className="navy-block dk-slate-block">
         <div className="container">
           <div className="center">
             <span className="eyebrow">Why DG Clinic</span>
@@ -118,6 +148,18 @@ export default async function HomePage() {
             />
           </div>
         </div>
+      </section>
+
+      {/* Instagram grid — static curated tiles for v1, per
+          docs/HANDOFF-rebrand.md §3.3. */}
+      <section className="section container center">
+        <Reveal>
+          <span className="eyebrow">{INSTAGRAM_HANDLE}</span>
+          <h2>Follow Along on Instagram</h2>
+        </Reveal>
+        <Reveal delay={90}>
+          <InstagramGrid />
+        </Reveal>
       </section>
 
       {/* Service area teaser */}

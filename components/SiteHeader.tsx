@@ -8,6 +8,7 @@ import {
   NAV_CATEGORIES,
   NAV_SECONDARY,
   SITE_NAME,
+  waLink,
 } from "@/lib/site";
 
 export default function SiteHeader() {
@@ -44,21 +45,25 @@ export default function SiteHeader() {
     <header className="site-header">
       <div className="container header-inner">
         <Link href="/" className="header-brand" aria-label={`${SITE_NAME} — Home`}>
+          {/* Denish Gunawan Clinic mark. SVG — next/image adds nothing here,
+              so a plain img is deliberate. DOKDEN wordmark lives in the
+              footer bottom-right. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={LOGO_SRC}
             alt={SITE_NAME}
             className="header-logo"
             height={64}
+            fetchPriority="high"
           />
         </Link>
         <nav className="header-nav" aria-label="Main navigation">
           <Link
-            href="/"
-            className={linkClass("/")}
-            aria-current={pathname === "/" ? "page" : undefined}
+            href={NAV_SECONDARY[0].href}
+            className={linkClass(NAV_SECONDARY[0].href)}
+            aria-current={pathname === NAV_SECONDARY[0].href ? "page" : undefined}
           >
-            Home
+            {NAV_SECONDARY[0].label}
           </Link>
           <div
             className={`nav-dropdown ${open ? "is-open" : ""}`}
@@ -75,7 +80,7 @@ export default function SiteHeader() {
               aria-haspopup="true"
               onClick={() => setOpen((o) => (hoverable() ? true : !o))}
             >
-              Products
+              Services
               <svg
                 className="nav-dropdown__chevron"
                 width="10"
@@ -108,16 +113,28 @@ export default function SiteHeader() {
               </div>
             </div>
           </div>
-          {NAV_SECONDARY.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={linkClass(item.href)}
-              aria-current={pathname === item.href ? "page" : undefined}
-            >
-              {item.label}
-            </Link>
-          ))}
+          <Link
+            href="/hnw-concierge"
+            className={linkClass("/hnw-concierge")}
+            aria-current={pathname === "/hnw-concierge" ? "page" : undefined}
+          >
+            HNW Concierge
+          </Link>
+          <Link
+            href={NAV_SECONDARY[1].href}
+            className={linkClass(NAV_SECONDARY[1].href)}
+            aria-current={pathname === NAV_SECONDARY[1].href ? "page" : undefined}
+          >
+            {NAV_SECONDARY[1].label}
+          </Link>
+          <a
+            href={waLink("Hello DOKDEN — I'd like to request a doctor dispatch.")}
+            className="btn btn-gold btn-sm header-cta"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Doctor Dispatch
+          </a>
         </nav>
       </div>
     </header>
