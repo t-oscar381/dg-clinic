@@ -19,7 +19,12 @@ export const metadata: Metadata = {
 export default function ServiceAreaPage() {
   return (
     <>
-      <section className="hero container">
+      <section
+        className="hero container dk-page-hero"
+        style={{
+          backgroundImage: "url(/images/heroes/hero-service-area.webp)",
+        }}
+      >
         <span className="eyebrow">Service Areas · Greater Jakarta</span>
         <h1>
           Wherever You Are in Jakarta, <br />

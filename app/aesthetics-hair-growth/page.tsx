@@ -58,7 +58,10 @@ const treatments: Treatment[] = [
 export default function AestheticsHairGrowthPage() {
   return (
     <>
-      <section className="hero container">
+      <section
+        className="hero container dk-page-hero"
+        style={{ backgroundImage: "url(/images/heroes/hero-aesthetics.webp)" }}
+      >
         <span className="eyebrow">
           Aesthetics &amp; Hair Growth · Homecare Jakarta
         </span>

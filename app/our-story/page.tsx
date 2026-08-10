@@ -11,21 +11,31 @@ export const metadata: Metadata = {
 export default function OurStoryPage() {
   return (
     <>
-      <section className="hero container">
-        <Image
-          src="/images/founder.avif"
-          alt="dr. Denish Gunawan, MPH — founder of Denish Gunawan Clinic"
-          className="portrait-photo"
-          width={200}
-          height={200}
-          priority
-        />
-        <span className="eyebrow">Our Story</span>
-        <h1>Meet the Man Behind DG Clinic</h1>
-        <p className="lede">
-          Dr. Denish Gunawan began his medical journey at Atma Jaya
-          University, earning his degree as a medical doctor.
-        </p>
+      {/* Dark band behind the split hero, per docs/HANDOFF-complete.md §3.
+          founder.avif stays the real, foreground portrait — never replaced
+          with AI-generated imagery. */}
+      <section
+        className="hero container dk-page-hero founder-hero"
+        style={{ backgroundImage: "url(/images/heroes/hero-our-story.webp)" }}
+      >
+        <div className="founder-hero-copy">
+          <span className="eyebrow">Our Story</span>
+          <h1>Meet the Man Behind DG Clinic</h1>
+          <p className="lede">
+            Dr. Denish Gunawan began his medical journey at Atma Jaya
+            University, earning his degree as a medical doctor.
+          </p>
+        </div>
+        <div className="founder-hero-portrait">
+          <Image
+            src="/images/founder.avif"
+            alt="dr. Denish Gunawan, MPH — founder of Denish Gunawan Clinic"
+            className="founder-portrait-large"
+            width={420}
+            height={680}
+            priority
+          />
+        </div>
       </section>
 
       <section className="section-tight container">

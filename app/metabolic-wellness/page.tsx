@@ -36,7 +36,10 @@ const programs: Treatment[] = [
 export default function MetabolicWellnessPage() {
   return (
     <>
-      <section className="hero container">
+      <section
+        className="hero container dk-page-hero"
+        style={{ backgroundImage: "url(/images/heroes/hero-metabolic.webp)" }}
+      >
         <span className="eyebrow">Metabolic Wellness · Homecare Jakarta</span>
         <h1>
           Metabolic Health, <span className="em-teal">Managed by Doctors</span>

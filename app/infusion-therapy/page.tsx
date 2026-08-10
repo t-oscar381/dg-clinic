@@ -11,7 +11,10 @@ export const metadata: Metadata = {
 export default function InfusionTherapyPage() {
   return (
     <>
-      <section className="hero container">
+      <section
+        className="hero container dk-page-hero"
+        style={{ backgroundImage: "url(/images/heroes/hero-infusion.webp)" }}
+      >
         <span className="eyebrow">Infusion Therapy · Homecare Jakarta</span>
         <h1>
           Infusion Therapy, Tailored to <span className="em-teal">Your Day</span>

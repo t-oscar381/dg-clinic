@@ -36,7 +36,12 @@ const modalities: Treatment[] = [
 export default function RegenerativeTherapyPage() {
   return (
     <>
-      <section className="hero container">
+      <section
+        className="hero container dk-page-hero"
+        style={{
+          backgroundImage: "url(/images/heroes/hero-regenerative.webp)",
+        }}
+      >
         <span className="eyebrow eyebrow-gold">
           Regenerative Therapy · Homecare Jakarta
         </span>
