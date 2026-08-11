@@ -178,18 +178,104 @@ svg {
 /* --- Header ------------------------------------------------------- */
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
   background: rgba(247, 243, 236, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Fixed header no longer reserves its own space in the flow, so
+   main-content is pushed down by its measured height (--header-h, set
+   in SiteHeader.tsx) — except hero sections, which pull back up under
+   it so a transparent .is-top header can show the hero through. */
+#main-content {
+  padding-top: var(--header-h, 88px);
+}
+
+.dk-hero,
+.dk-page-hero {
+  margin-top: calc(-1 * var(--header-h, 88px));
 }
 
 /* Auto-hide on scroll-down (Round 3 feedback). */
 .site-header.is-hidden {
   transform: translateY(-100%);
+}
+
+/* Transparent at rest, over the hero (Round 4 feedback) — every page
+   has a dark hero band right under the header, so light nav text
+   stays legible. Solidifies the moment the page scrolls at all. */
+.site-header.is-top {
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom-color: transparent;
+}
+
+.site-header.is-top .header-link,
+.site-header.is-top .nav-dropdown__btn,
+.site-header.is-top .lang-switch a {
+  color: var(--dk-bone);
+  transition: color 0.3s ease;
+}
+
+.site-header.is-top .header-link:hover,
+.site-header.is-top .header-link.is-active,
+.site-header.is-top .nav-dropdown__btn.is-active,
+.site-header.is-top .lang-switch a:hover,
+.site-header.is-top .lang-switch a.is-active {
+  color: var(--dk-gold);
+}
+
+.site-header.is-top .lang-switch span {
+  color: var(--dk-bone);
+}
+
+/* Breathing indicator, mobile only (Round 4 feedback) — a small
+   squircle pinned to the top edge that pulses slowly, a quiet visual
+   stand-in for a haptic tick since the browser can't fire real haptics. */
+.haptic-pulse {
+  position: fixed;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  width: 36px;
+  height: 5px;
+  border-radius: 6px;
+  background: var(--dk-gold);
+  pointer-events: none;
+  animation: haptic-breathe 2.6s ease-in-out infinite;
+}
+
+@keyframes haptic-breathe {
+  0%,
+  100% {
+    transform: translateX(-50%) scaleX(0.85);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 0.8;
+  }
+}
+
+@media (min-width: 768px) {
+  .haptic-pulse {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .haptic-pulse {
+    animation: none;
+    opacity: 0.5;
+  }
 }
 
 .header-inner {
@@ -233,6 +319,7 @@ svg {
   color: var(--color-navy);
   opacity: 0.5;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .lang-switch a:hover,
@@ -252,6 +339,10 @@ svg {
   display: flex;
   align-items: center;
   min-height: 640px;
+  /* Content centers within the space below the floating header, not
+     the full (image-only) box — the image itself still bleeds behind
+     the header via the negative margin below. */
+  padding-top: var(--header-h, 88px);
   overflow: hidden;
   color: var(--dk-bone);
 }
@@ -461,6 +552,14 @@ svg {
   background-position: center;
 }
 
+/* Pulled up under the floating header (see margin-top above); this
+   restores clearance so the heading never sits behind the nav, however
+   tall the header wraps to on narrow viewports. Compound selector so
+   it beats the later, equal-specificity plain .hero padding-top. */
+.hero.dk-page-hero {
+  padding-top: calc(var(--header-h, 88px) + 24px);
+}
+
 .dk-page-hero::before {
   content: "";
   position: absolute;
@@ -562,6 +661,7 @@ svg {
   font-weight: 500;
   color: var(--color-navy);
   letter-spacing: 0.02em;
+  transition: color 0.3s ease;
 }
 
 .header-link:hover {
