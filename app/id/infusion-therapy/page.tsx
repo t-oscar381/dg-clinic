@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import InfusionMenu from "@/components/InfusionMenu";
+import PricedCatalog from "@/components/PricedCatalog";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { INFUSION_PRODUCTS, INFUSION_TIERS } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "Terapi Infus — IV Vitamin & Kesehatan di Jakarta",
@@ -28,7 +29,14 @@ export default function InfusionTherapyPageId() {
       </section>
 
       <section className="section-tight container">
-        <InfusionMenu locale="id" />
+        <PricedCatalog
+          tiers={INFUSION_TIERS}
+          products={INFUSION_PRODUCTS}
+          locale="id"
+          ariaLabel="Tingkatan terapi infus"
+          ctaLabel="Pesan via WhatsApp"
+          messageStyle="book"
+        />
         <p className="price-note">
           Harga yang tertera adalah per sesi. Kunjungan homecare dihitung
           terpisah sesuai lokasi Anda — hubungi kami di WhatsApp untuk

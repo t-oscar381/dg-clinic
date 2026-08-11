@@ -1526,6 +1526,13 @@ svg {
   margin: 0 auto;
 }
 
+/* A6 — the full-menu catalog (components/PricedCatalog.tsx) can hold
+   anywhere from 4 to 30+ SKUs, so it reflows by available width rather
+   than a fixed column count. */
+.product-grid--catalog {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
 @media (max-width: 720px) {
   .product-grid {
     grid-template-columns: 1fr;

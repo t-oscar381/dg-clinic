@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import InfusionMenu from "@/components/InfusionMenu";
+import PricedCatalog from "@/components/PricedCatalog";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { INFUSION_PRODUCTS, INFUSION_TIERS } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "Infusion Therapy — Vitamin & Wellness IV Drips in Jakarta",
@@ -27,7 +28,13 @@ export default function InfusionTherapyPage() {
       </section>
 
       <section className="section-tight container">
-        <InfusionMenu />
+        <PricedCatalog
+          tiers={INFUSION_TIERS}
+          products={INFUSION_PRODUCTS}
+          ariaLabel="Infusion therapy tiers"
+          ctaLabel="Book via WhatsApp"
+          messageStyle="book"
+        />
         <p className="price-note">
           Prices shown are per session. Home-care visits are quoted separately
           based on your location — message us on WhatsApp to confirm your final
