@@ -1,16 +1,18 @@
 import Image from "next/image";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/site";
 
-// Static curated tiles for v1 — no API integration required, per
-// docs/HANDOFF-rebrand.md §3.3. All images are AI-generated placeholders
-// (see §4); none are captioned as real patients, staff, or treatments.
+// Real tiles pulled from the clinic's own @dg.clinic.hnw feed (Round 4
+// feedback) — replaces the earlier AI-generated placeholders. Sourced
+// straight from Instagram, so no need to re-clear these with the team.
 const TILES = [
-  { src: "/images/dokden/hero-home-visit.webp", alt: "Home visit, doctor's bag in hand" },
-  { src: "/images/dokden/trust-bag.webp", alt: "Physician's leather bag, still life" },
-  { src: "/images/dokden/ig-living-room.webp", alt: "Sunlit home care living room" },
-  { src: "/images/dokden/ig-smartphone.webp", alt: "Messaging the clinic from home" },
-  { src: "/images/dokden/ig-syringe-prep.webp", alt: "Careful preparation before a visit" },
-  { src: "/images/dokden/ig-lifestyle-collage.webp", alt: "At-home healthcare lifestyle" },
+  { src: "/images/instagram/founder-portrait.jpg", alt: "Meet the man behind Denish Gunawan Clinic" },
+  { src: "/images/instagram/home-iv-care.jpg", alt: "Professional IV care at home with a doctor" },
+  { src: "/images/instagram/osteoarthritis-tip.jpg", alt: "Is it just aging or osteoarthritis?" },
+  { src: "/images/instagram/weight-loss-strategy.jpg", alt: "Weight loss strategy tips" },
+  { src: "/images/instagram/hair-regrowth-results.jpg", alt: "Exosome hair regrowth results" },
+  { src: "/images/instagram/duometabolic-teaser.jpg", alt: "DuoMetabolic+ weight loss injection" },
+  { src: "/images/instagram/secretome-therapy.jpg", alt: "Secretome therapy for anti-aging and health" },
+  { src: "/images/instagram/exosome-pricelist.jpg", alt: "Exosome treatment price list" },
 ];
 
 export default function InstagramGrid() {
@@ -25,7 +27,7 @@ export default function InstagramGrid() {
           className="dk-instagram-tile"
           aria-label={`${INSTAGRAM_HANDLE} on Instagram`}
         >
-          <Image src={tile.src} alt={tile.alt} fill sizes="(max-width: 700px) 50vw, 16vw" />
+          <Image src={tile.src} alt={tile.alt} fill sizes="(max-width: 700px) 50vw, 25vw" />
         </a>
       ))}
     </div>
