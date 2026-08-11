@@ -1281,6 +1281,36 @@ svg {
   padding: 30px 28px;
 }
 
+/* Lab partner cards double as external links (A4, Round 3) — same
+   card shell as .region-card, plus link behavior and a fixed-height
+   logo slot so very different source logo aspect ratios line up. */
+.partner-card {
+  display: block;
+  text-decoration: none;
+  color: var(--color-ink);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.partner-card:hover {
+  border-color: var(--color-teal);
+  box-shadow: var(--shadow-soft);
+}
+
+.partner-card__logo {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  margin-bottom: 16px;
+}
+
+.partner-card__logo img {
+  max-height: 56px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
 .region-card h3 {
   margin-bottom: 12px;
 }
