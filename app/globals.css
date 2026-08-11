@@ -211,6 +211,34 @@ svg {
   margin-left: 6px;
 }
 
+/* --- Language switcher (A2) -------------------------------------------- */
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.lang-switch a {
+  color: var(--color-navy);
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.lang-switch a:hover,
+.lang-switch a.is-active {
+  opacity: 1;
+  color: var(--color-teal);
+}
+
+.lang-switch span {
+  opacity: 0.3;
+}
+
 /* --- DOKDEN homepage hero -------------------------------------------- */
 
 .dk-hero {

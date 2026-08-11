@@ -4,8 +4,15 @@ import {
   clinicMapEmbedUrl,
   SITE_NAME,
 } from "@/lib/site";
+import type { Locale } from "@/lib/i18n";
 
-export default function LocationMap({ compact = false }: { compact?: boolean }) {
+export default function LocationMap({
+  compact = false,
+  locale = "en",
+}: {
+  compact?: boolean;
+  locale?: Locale;
+}) {
   return (
     <div>
       <div className={`location-map ${compact ? "location-map--compact" : ""}`.trim()}>
@@ -18,7 +25,8 @@ export default function LocationMap({ compact = false }: { compact?: boolean }) 
         />
       </div>
       <p className="location-caption">
-        {SITE_NAME} — {CLINIC_ADDRESS}. By appointment only.
+        {SITE_NAME} — {CLINIC_ADDRESS}.{" "}
+        {locale === "id" ? "Hanya dengan perjanjian." : "By appointment only."}
       </p>
     </div>
   );

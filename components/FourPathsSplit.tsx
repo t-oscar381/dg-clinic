@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import type { Locale } from "@/lib/i18n";
 
-const PANELS: {
+type Panel = {
   number: string;
   href: string;
   image: string;
@@ -15,7 +16,25 @@ const PANELS: {
   copy: string;
   chips: string[];
   goLabel: string;
-}[] = [
+};
+
+// Chips are frozen: specific treatment/tier names, and one entry
+// ("Stem Cell & NK Cell") is frozen wording that must never be altered
+// — see docs/HANDOFF-rebrand.md §0.3. Kept identical across locales on
+// purpose, not left untranslated by oversight.
+const CHIPS = {
+  infusion: ["Basic", "Essential", "Signature", "Sickness Relief"],
+  regenerative: ["Secretome & Exosome", "Stem Cell & NK Cell"],
+  metabolic: ["Weight Loss Program", "Sleep & Focus Boosters"],
+  aesthetics: [
+    "Skin Booster + Exosome",
+    "Natural Tersembunyi Skin Lift",
+    "Hyperpigmentation",
+    "Hair Growth Protocol",
+  ],
+};
+
+const PANELS_EN: Panel[] = [
   {
     number: "01",
     href: "/infusion-therapy",
@@ -25,7 +44,7 @@ const PANELS: {
     kickerClass: "badge-essential",
     title: "Tiered IV Wellness",
     copy: "Tiered IV wellness — from daily energy support to targeted recovery.",
-    chips: ["Basic", "Essential", "Signature", "Sickness Relief"],
+    chips: CHIPS.infusion,
     goLabel: "Explore Infusion Therapy →",
   },
   {
@@ -37,9 +56,7 @@ const PANELS: {
     kickerClass: "badge-gold",
     title: "Advanced Cellular Treatment",
     copy: "Advanced cellular treatment for recovery and long-term vitality.",
-    // "Stem Cell & NK Cell" is frozen wording, not new copy — see
-    // docs/HANDOFF-rebrand.md §0.3. Do not remove or duplicate elsewhere.
-    chips: ["Secretome & Exosome", "Stem Cell & NK Cell"],
+    chips: CHIPS.regenerative,
     goLabel: "Explore Regenerative Therapy →",
   },
   {
@@ -51,7 +68,7 @@ const PANELS: {
     kickerClass: "badge-signature",
     title: "Doctor-Guided Metabolic Care",
     copy: "Medical weight loss and performance support, guided by doctors.",
-    chips: ["Weight Loss Program", "Sleep & Focus Boosters"],
+    chips: CHIPS.metabolic,
     goLabel: "Explore Metabolic Wellness →",
   },
   {
@@ -63,25 +80,76 @@ const PANELS: {
     kicker: "Aesthetics & Hair Growth",
     title: "Skin & Hair, Clinical Precision",
     copy: "Skin and hair treatment with clinical precision, at home.",
-    chips: [
-      "Skin Booster + Exosome",
-      "Natural Tersembunyi Skin Lift",
-      "Hyperpigmentation",
-      "Hair Growth Protocol",
-    ],
+    chips: CHIPS.aesthetics,
     goLabel: "Explore Aesthetics & Hair Growth →",
   },
 ];
 
-export default function FourPathsSplit() {
+const PANELS_ID: Panel[] = [
+  {
+    number: "01",
+    href: "/infusion-therapy",
+    image: "/images/paths-infusion.webp",
+    alt: "Terapi infus diberikan di rumah pasien",
+    kicker: "Terapi Infus",
+    kickerClass: "badge-essential",
+    title: "Kesehatan IV Bertingkat",
+    copy: "Kesehatan IV bertingkat — dari dukungan energi harian hingga pemulihan yang terarah.",
+    chips: CHIPS.infusion,
+    goLabel: "Jelajahi Terapi Infus →",
+  },
+  {
+    number: "02",
+    href: "/regenerative-therapy",
+    image: "/images/paths-regenerative.webp",
+    alt: "Persiapan yang cermat sebelum kunjungan terapi regeneratif",
+    kicker: "Terapi Regeneratif",
+    kickerClass: "badge-gold",
+    title: "Perawatan Selular Lanjutan",
+    copy: "Perawatan selular lanjutan untuk pemulihan dan vitalitas jangka panjang.",
+    chips: CHIPS.regenerative,
+    goLabel: "Jelajahi Terapi Regeneratif →",
+  },
+  {
+    number: "03",
+    href: "/metabolic-wellness",
+    image: "/images/paths-metabolic.webp",
+    alt: "Konsultasi dokter untuk program kesehatan metabolik",
+    kicker: "Kesehatan Metabolik",
+    kickerClass: "badge-signature",
+    title: "Perawatan Metabolik Dipandu Dokter",
+    copy: "Penurunan berat badan medis dan dukungan performa, dipandu oleh dokter.",
+    chips: CHIPS.metabolic,
+    goLabel: "Jelajahi Kesehatan Metabolik →",
+  },
+  {
+    number: "04",
+    href: "/aesthetics-hair-growth",
+    image: "/images/paths-aesthetics.webp",
+    alt: "Perawatan estetika dan pertumbuhan rambut di rumah",
+    kickerClass: "badge-basic",
+    kicker: "Estetika & Pertumbuhan Rambut",
+    title: "Kulit & Rambut, Presisi Klinis",
+    copy: "Perawatan kulit dan rambut dengan presisi klinis, di rumah Anda.",
+    chips: CHIPS.aesthetics,
+    goLabel: "Jelajahi Estetika & Pertumbuhan Rambut →",
+  },
+];
+
+export default function FourPathsSplit({
+  locale = "en",
+}: {
+  locale?: Locale;
+}) {
   const [active, setActive] = useState<string | null>(null);
+  const panels = locale === "id" ? PANELS_ID : PANELS_EN;
 
   return (
     <div className="split split-4" onMouseLeave={() => setActive(null)}>
-      {PANELS.map((panel) => (
+      {panels.map((panel) => (
         <Link
           key={panel.href}
-          href={panel.href}
+          href={locale === "id" ? `/id${panel.href}` : panel.href}
           className={`split-panel ${active === panel.href ? "is-active" : ""}`}
           onMouseEnter={() => setActive(panel.href)}
           onFocus={() => setActive(panel.href)}

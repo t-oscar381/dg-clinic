@@ -10,13 +10,31 @@ import {
   SITE_NAME,
   waLink,
 } from "@/lib/site";
+import {
+  localeFromPathname,
+  NAV_CATEGORY_LABELS_ID,
+  toEnglishPath,
+  toIndonesianPath,
+  UI_STRINGS,
+} from "@/lib/i18n";
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
-  const isCategoryPage = NAV_CATEGORIES.some((item) => item.href === pathname);
+  const locale = localeFromPathname(pathname);
+  const t = UI_STRINGS[locale];
+  // Canonical (English) path, used for active-state comparisons so the
+  // same logic works regardless of which locale is currently showing.
+  const canonicalPath =
+    locale === "id" ? toEnglishPath(pathname ?? "/") : pathname ?? "/";
+  const localize = (href: string) =>
+    locale === "id" ? toIndonesianPath(href) : href;
+
+  const isCategoryPage = NAV_CATEGORIES.some(
+    (item) => item.href === canonicalPath
+  );
 
   useEffect(() => {
     if (!open) return;
@@ -38,13 +56,22 @@ export default function SiteHeader() {
     typeof window !== "undefined" &&
     window.matchMedia("(hover: hover)").matches;
 
-  const linkClass = (href: string) =>
-    `header-link ${pathname === href ? "is-active" : ""}`.trim();
+  const linkClass = (englishHref: string) =>
+    `header-link ${canonicalPath === englishHref ? "is-active" : ""}`.trim();
+
+  const dispatchMessage =
+    locale === "id"
+      ? "Halo DOKDEN — saya ingin meminta pengiriman dokter."
+      : "Hello DOKDEN — I'd like to request a doctor dispatch.";
 
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <Link href="/" className="header-brand" aria-label={`${SITE_NAME} — Home`}>
+        <Link
+          href={localize("/")}
+          className="header-brand"
+          aria-label={`${SITE_NAME} — ${t.home}`}
+        >
           {/* Denish Gunawan Clinic mark. SVG — next/image adds nothing here,
               so a plain img is deliberate. DOKDEN wordmark lives in the
               footer bottom-right. */}
@@ -59,18 +86,20 @@ export default function SiteHeader() {
         </Link>
         <nav className="header-nav" aria-label="Main navigation">
           <Link
-            href="/"
+            href={localize("/")}
             className={linkClass("/")}
-            aria-current={pathname === "/" ? "page" : undefined}
+            aria-current={canonicalPath === "/" ? "page" : undefined}
           >
-            Home
+            {t.home}
           </Link>
           <Link
-            href={NAV_SECONDARY[0].href}
+            href={localize(NAV_SECONDARY[0].href)}
             className={linkClass(NAV_SECONDARY[0].href)}
-            aria-current={pathname === NAV_SECONDARY[0].href ? "page" : undefined}
+            aria-current={
+              canonicalPath === NAV_SECONDARY[0].href ? "page" : undefined
+            }
           >
-            {NAV_SECONDARY[0].label}
+            {t.aboutFounder}
           </Link>
           <div
             className={`nav-dropdown ${open ? "is-open" : ""}`}
@@ -87,7 +116,7 @@ export default function SiteHeader() {
               aria-haspopup="true"
               onClick={() => setOpen((o) => (hoverable() ? true : !o))}
             >
-              Services
+              {t.services}
               <svg
                 className="nav-dropdown__chevron"
                 width="10"
@@ -107,48 +136,76 @@ export default function SiteHeader() {
                 {NAV_CATEGORIES.map((item) => (
                   <Link
                     key={item.href}
-                    href={item.href}
+                    href={localize(item.href)}
                     className={`nav-dropdown__link ${
-                      pathname === item.href ? "is-active" : ""
+                      canonicalPath === item.href ? "is-active" : ""
                     }`}
-                    aria-current={pathname === item.href ? "page" : undefined}
+                    aria-current={
+                      canonicalPath === item.href ? "page" : undefined
+                    }
                     onClick={() => setOpen(false)}
                   >
-                    {item.label}
+                    {locale === "id"
+                      ? NAV_CATEGORY_LABELS_ID[item.href] ?? item.label
+                      : item.label}
                   </Link>
                 ))}
               </div>
             </div>
           </div>
           <Link
-            href={NAV_SECONDARY[1].href}
+            href={localize(NAV_SECONDARY[1].href)}
             className={linkClass(NAV_SECONDARY[1].href)}
-            aria-current={pathname === NAV_SECONDARY[1].href ? "page" : undefined}
+            aria-current={
+              canonicalPath === NAV_SECONDARY[1].href ? "page" : undefined
+            }
           >
-            {NAV_SECONDARY[1].label}
+            {t.labPartners}
           </Link>
           <Link
-            href="/hnw-concierge"
+            href={localize("/hnw-concierge")}
             className={linkClass("/hnw-concierge")}
-            aria-current={pathname === "/hnw-concierge" ? "page" : undefined}
+            aria-current={
+              canonicalPath === "/hnw-concierge" ? "page" : undefined
+            }
           >
-            HNW Concierge
+            {t.hnwConcierge}
           </Link>
           <Link
-            href={NAV_SECONDARY[2].href}
+            href={localize(NAV_SECONDARY[2].href)}
             className={linkClass(NAV_SECONDARY[2].href)}
-            aria-current={pathname === NAV_SECONDARY[2].href ? "page" : undefined}
+            aria-current={
+              canonicalPath === NAV_SECONDARY[2].href ? "page" : undefined
+            }
           >
-            {NAV_SECONDARY[2].label}
+            {t.requestConsultation}
           </Link>
           <a
-            href={waLink("Hello DOKDEN — I'd like to request a doctor dispatch.")}
+            href={waLink(dispatchMessage)}
             className="btn btn-gold btn-sm header-cta"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Doctor Dispatch
+            {t.doctorDispatch}
           </a>
+          {/* A2 — language switcher, top right (docs/FEEDBACK-LOG.md). */}
+          <div className="lang-switch" aria-label="Language">
+            <Link
+              href={canonicalPath}
+              className={locale === "en" ? "is-active" : ""}
+              aria-current={locale === "en" ? "page" : undefined}
+            >
+              EN
+            </Link>
+            <span aria-hidden="true">/</span>
+            <Link
+              href={toIndonesianPath(canonicalPath)}
+              className={locale === "id" ? "is-active" : ""}
+              aria-current={locale === "id" ? "page" : undefined}
+            >
+              ID
+            </Link>
+          </div>
         </nav>
       </div>
     </header>

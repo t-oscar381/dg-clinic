@@ -7,8 +7,13 @@ import {
   INFUSION_TIERS,
 } from "@/lib/pricing";
 import { waLink } from "@/lib/site";
+import type { Locale } from "@/lib/i18n";
 
-export default function InfusionMenu() {
+export default function InfusionMenu({
+  locale = "en",
+}: {
+  locale?: Locale;
+}) {
   const [active, setActive] = useState(0);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
@@ -32,7 +37,11 @@ export default function InfusionMenu() {
 
   return (
     <div>
-      <div className="tabs" role="tablist" aria-label="Infusion therapy tiers">
+      <div
+        className="tabs"
+        role="tablist"
+        aria-label={locale === "id" ? "Tingkatan terapi infus" : "Infusion therapy tiers"}
+      >
         {INFUSION_TIERS.map((t, i) => (
           <button
             key={t.id}
@@ -66,18 +75,28 @@ export default function InfusionMenu() {
               key={product.id}
               className="product-card"
               href={waLink(
-                `Hello DG Clinic — I would like to book the ${product.name} (${formatIdr(
-                  product.nowIdr
-                )}).`
+                locale === "id"
+                  ? `Halo DG Clinic — saya ingin memesan ${product.name} (${formatIdr(
+                      product.nowIdr
+                    )}).`
+                  : `Hello DG Clinic — I would like to book the ${product.name} (${formatIdr(
+                      product.nowIdr
+                    )}).`
               )}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Book the ${product.name} on WhatsApp`}
+              aria-label={
+                locale === "id"
+                  ? `Pesan ${product.name} via WhatsApp`
+                  : `Book the ${product.name} on WhatsApp`
+              }
             >
               <span className="product-card__rail" aria-hidden="true" />
               <span className="product-card__category">{tier.label}</span>
               <h3>{product.name}</h3>
-              <p className="product-card__desc">{product.desc}</p>
+              <p className="product-card__desc">
+                {locale === "id" ? product.descId : product.desc}
+              </p>
               <div className="product-card__prices">
                 <span className="price-was">{formatIdr(product.wasIdr)}</span>
                 <span className="price-now">{formatIdr(product.nowIdr)}</span>
@@ -86,7 +105,7 @@ export default function InfusionMenu() {
                 Hemat {formatIdr(product.saveIdr)}
               </span>
               <div className="product-card__cta">
-                <span>Book via WhatsApp</span>
+                <span>{locale === "id" ? "Pesan via WhatsApp" : "Book via WhatsApp"}</span>
                 <span className="product-card__arrow" aria-hidden="true">
                   →
                 </span>
