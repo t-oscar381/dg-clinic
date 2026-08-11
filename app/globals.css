@@ -184,6 +184,12 @@ svg {
   background: rgba(247, 243, 236, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
+  transition: transform 0.3s ease;
+}
+
+/* Auto-hide on scroll-down (Round 3 feedback). */
+.site-header.is-hidden {
+  transform: translateY(-100%);
 }
 
 .header-inner {
