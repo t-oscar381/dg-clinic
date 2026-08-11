@@ -61,7 +61,7 @@ function resolveAmountAndDescription(req: PaymentLinkRequest): {
     // the caller cannot override it.
     return {
       amountIdr: product.nowIdr,
-      description: `DG Clinic — ${product.name}`,
+      description: `Denish Gunawan Clinic — ${product.name}`,
       reference: product.id,
     };
   }
@@ -82,7 +82,7 @@ function resolveAmountAndDescription(req: PaymentLinkRequest): {
   }
   return {
     amountIdr: req.amountIdr,
-    description: `DG Clinic — ${req.description.trim().slice(0, 250)}`,
+    description: `Denish Gunawan Clinic — ${req.description.trim().slice(0, 250)}`,
     reference: "custom",
   };
 }

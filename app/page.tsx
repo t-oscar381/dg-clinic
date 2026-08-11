@@ -80,7 +80,7 @@ export default async function HomePage() {
               <h2>Four Paths to Better Health</h2>
               <p className="lede">
                 Whether you need daily wellness support or advanced
-                regenerative care, DG Clinic brings the right treatment to
+                regenerative care, Denish Gunawan Clinic brings the right treatment to
                 you.
               </p>
             </div>
@@ -94,12 +94,12 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Why DG Clinic — restyled to the DOKDEN dark band, content unchanged
+      {/* Why Denish Gunawan Clinic — restyled to the DOKDEN dark band, content unchanged
           per docs/HANDOFF-rebrand.md §3, §5 stage 5. */}
       <section className="navy-block dk-slate-block">
         <div className="container">
           <div className="center">
-            <span className="eyebrow">Why DG Clinic</span>
+            <span className="eyebrow">Why Denish Gunawan Clinic</span>
             <h2>Care Built Around Privacy</h2>
           </div>
           <p className="statement">

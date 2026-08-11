@@ -14,7 +14,7 @@ import { INSTAGRAM_HANDLE, waLink } from "@/lib/site";
 export const metadata: Metadata = {
   title: "DOKDEN — Layanan Dokter Pribadi | Denish Gunawan Clinic",
   description:
-    "DG Clinic menghadirkan perawatan homecare yang dipimpin dokter di Jakarta — infus, terapi regeneratif, kesehatan metabolik, dan estetika, dilayani secara pribadi ke tempat Anda.",
+    "Denish Gunawan Clinic menghadirkan perawatan homecare yang dipimpin dokter di Jakarta — infus, terapi regeneratif, kesehatan metabolik, dan estetika, dilayani secara pribadi ke tempat Anda.",
 };
 
 export const revalidate = 300;
@@ -73,7 +73,7 @@ export default function HomePageId() {
               <h2>Empat Jalan Menuju Kesehatan Lebih Baik</h2>
               <p className="lede">
                 Baik Anda memerlukan dukungan kesehatan harian maupun
-                perawatan regeneratif lanjutan, DG Clinic menghadirkan
+                perawatan regeneratif lanjutan, Denish Gunawan Clinic menghadirkan
                 perawatan yang tepat untuk Anda.
               </p>
             </div>
@@ -88,7 +88,7 @@ export default function HomePageId() {
       <section className="navy-block dk-slate-block">
         <div className="container">
           <div className="center">
-            <span className="eyebrow">Mengapa DG Clinic</span>
+            <span className="eyebrow">Mengapa Denish Gunawan Clinic</span>
             <h2>Perawatan yang Menjunjung Privasi</h2>
           </div>
           <p className="statement">
@@ -130,7 +130,7 @@ export default function HomePageId() {
             </li>
             <li>
               <strong>Terbukti sejak 2021</strong> — 10.000+ pasien
-              mempercayai DG Clinic di seluruh Jakarta.
+              mempercayai Denish Gunawan Clinic di seluruh Jakarta.
             </li>
           </ul>
           <div className="center">

@@ -11,9 +11,9 @@ import {
 } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Service Areas & Contact — DG Clinic Homecare Jakarta",
+  title: "Service Areas & Contact — Denish Gunawan Clinic Homecare Jakarta",
   description:
-    "DG Clinic serves Greater Jakarta with private, doctor-led home-care. Message us on WhatsApp to arrange your visit.",
+    "Denish Gunawan Clinic serves Greater Jakarta with private, doctor-led home-care. Message us on WhatsApp to arrange your visit.",
 };
 
 export default function ServiceAreaPage() {
@@ -31,7 +31,7 @@ export default function ServiceAreaPage() {
           <span className="em-teal">We Come to You</span>
         </h1>
         <p className="lede">
-          DG Clinic serves patients across Greater Jakarta, bringing the same
+          Denish Gunawan Clinic serves patients across Greater Jakarta, bringing the same
           private, doctor-led care to every visit.
         </p>
       </section>
@@ -86,7 +86,7 @@ export default function ServiceAreaPage() {
             </a>
           </p>
           <WhatsAppButton
-            label="Message DG Clinic on WhatsApp →"
+            label="Message Denish Gunawan Clinic on WhatsApp →"
             variant="light"
           />
         </div>

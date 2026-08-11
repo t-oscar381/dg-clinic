@@ -6,7 +6,7 @@ import { INFUSION_PRODUCTS, INFUSION_TIERS } from "@/lib/pricing";
 export const metadata: Metadata = {
   title: "Infusion Therapy — Vitamin & Wellness IV Drips in Jakarta",
   description:
-    "DG Clinic's homecare infusion therapy — from daily energy support to targeted recovery drips — delivered privately across Jakarta by licensed doctors.",
+    "Denish Gunawan Clinic's homecare infusion therapy — from daily energy support to targeted recovery drips — delivered privately across Jakarta by licensed doctors.",
 };
 
 export default function InfusionTherapyPage() {

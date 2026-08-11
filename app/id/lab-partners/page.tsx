@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Mitra Laboratorium — DG Clinic, Jakarta",
+  title: "Mitra Laboratorium — Denish Gunawan Clinic, Jakarta",
   description:
-    "Laboratorium diagnostik terakreditasi yang bekerja sama dengan DG Clinic untuk pemeriksaan homecare di Jakarta: Prodia, Biotest, dan Biomedika.",
+    "Laboratorium diagnostik terakreditasi yang bekerja sama dengan Denish Gunawan Clinic untuk pemeriksaan homecare di Jakarta: Prodia, Biotest, dan Biomedika.",
 };
 
 const PARTNERS = [

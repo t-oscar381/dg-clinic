@@ -6,9 +6,9 @@ import { WHATSAPP_URL } from "@/lib/site";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Reviews — DG Clinic, Jakarta",
+  title: "Reviews — Denish Gunawan Clinic, Jakarta",
   description:
-    "What patients say about booking, the visit, and having doctor-led care at home with DG Clinic.",
+    "What patients say about booking, the visit, and having doctor-led care at home with Denish Gunawan Clinic.",
 };
 
 // Service-experience testimonials only — never treatment outcomes.

@@ -28,7 +28,7 @@ export const waLink = (message: string) =>
   "https://wa.me/62811969866?text=" + encodeURIComponent(message);
 
 export const WHATSAPP_URL = waLink(
-  "Hello DG Clinic — I would like to ask about your treatments."
+  "Hello Denish Gunawan Clinic — I would like to ask about your treatments."
 );
 
 export const INSTAGRAM_HANDLE = "@dg.clinic.hnw";

@@ -17,7 +17,7 @@ export async function generateMetadata({
   if (!post) return {};
 
   return {
-    title: `${post.title} — DG Clinic Blog`,
+    title: `${post.title} — Denish Gunawan Clinic Blog`,
     description: post.excerpt ?? undefined,
   };
 }
@@ -77,7 +77,7 @@ export default async function BlogPostPage({
           <h2>Have Questions?</h2>
           <p>Message us on WhatsApp to talk to our team.</p>
           <WhatsAppButton
-            label="Message DG Clinic on WhatsApp →"
+            label="Message Denish Gunawan Clinic on WhatsApp →"
             variant="light"
           />
         </div>

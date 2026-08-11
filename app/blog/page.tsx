@@ -6,9 +6,9 @@ import { getPublishedPosts } from "@/lib/cms";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Blog & News — DG Clinic Jakarta",
+  title: "Blog & News — Denish Gunawan Clinic Jakarta",
   description:
-    "Wellness updates, clinic news, and treatment guidance from DG Clinic, Jakarta's doctor-led homecare wellness clinic.",
+    "Wellness updates, clinic news, and treatment guidance from Denish Gunawan Clinic, Jakarta's doctor-led homecare wellness clinic.",
 };
 
 export default async function BlogIndexPage() {
@@ -18,7 +18,7 @@ export default async function BlogIndexPage() {
     <>
       <section className="hero container">
         <span className="eyebrow">Blog &amp; News</span>
-        <h1>From DG Clinic</h1>
+        <h1>From Denish Gunawan Clinic</h1>
         <p className="lede">
           Wellness updates, clinic news, and guidance from our doctors.
         </p>

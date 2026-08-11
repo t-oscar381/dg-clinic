@@ -13,7 +13,7 @@ export default function FloatingActions() {
         href={INSTAGRAM_URL}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="DG Clinic on Instagram"
+        aria-label="Denish Gunawan Clinic on Instagram"
       >
         <svg
           width="22"
@@ -34,7 +34,7 @@ export default function FloatingActions() {
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Message DG Clinic on WhatsApp"
+        aria-label="Message Denish Gunawan Clinic on WhatsApp"
       >
         <svg
           width="24"

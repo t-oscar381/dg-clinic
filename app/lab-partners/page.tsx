@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Lab Partners — DG Clinic, Jakarta",
+  title: "Lab Partners — Denish Gunawan Clinic, Jakarta",
   description:
-    "The accredited diagnostic laboratories DG Clinic works with for homecare testing across Jakarta: Prodia, Biotest, and Biomedika.",
+    "The accredited diagnostic laboratories Denish Gunawan Clinic works with for homecare testing across Jakarta: Prodia, Biotest, and Biomedika.",
 };
 
 // Logos are temporary — sourced from each partner's public site for now;

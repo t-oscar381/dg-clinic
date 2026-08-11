@@ -5,7 +5,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 export const metadata: Metadata = {
   title: "Metabolic Wellness — Medical Weight Loss Program in Jakarta",
   description:
-    "Doctor-guided weight loss and performance support from DG Clinic — injectable and oral programs, delivered privately at home in Jakarta.",
+    "Doctor-guided weight loss and performance support from Denish Gunawan Clinic — injectable and oral programs, delivered privately at home in Jakarta.",
 };
 
 const programs: Treatment[] = [
@@ -18,7 +18,7 @@ const programs: Treatment[] = [
     copy: "Doctor-supervised weight management combining injectable and oral medicine with lifestyle guidance — built as an ongoing program, not a one-off treatment.",
     ctaLabel: "Ask via WhatsApp →",
     ctaMessage:
-      "Hello DG Clinic — I would like to ask about the Weight Loss Program.",
+      "Hello Denish Gunawan Clinic — I would like to ask about the Weight Loss Program.",
   },
   {
     id: "sleep-focus",
@@ -29,7 +29,7 @@ const programs: Treatment[] = [
     copy: "Targeted support for rest, clarity, and daily performance.",
     ctaLabel: "Ask via WhatsApp →",
     ctaMessage:
-      "Hello DG Clinic — I would like to ask about Sleep & Focus Boosters.",
+      "Hello Denish Gunawan Clinic — I would like to ask about Sleep & Focus Boosters.",
   },
 ];
 

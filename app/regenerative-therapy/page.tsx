@@ -5,7 +5,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 export const metadata: Metadata = {
   title: "Regenerative Therapy in Jakarta — Secretome, Exosome & Cellular Treatment",
   description:
-    "Advanced regenerative therapy from DG Clinic — secretome, exosome, and cellular treatments administered privately at home by licensed doctors in Jakarta.",
+    "Advanced regenerative therapy from Denish Gunawan Clinic — secretome, exosome, and cellular treatments administered privately at home by licensed doctors in Jakarta.",
 };
 
 const modalities: Treatment[] = [
@@ -18,7 +18,7 @@ const modalities: Treatment[] = [
     copy: "Cell-derived regenerative treatment designed to support your body's natural repair and recovery processes.",
     ctaLabel: "Ask via WhatsApp →",
     ctaMessage:
-      "Hello DG Clinic — I would like to ask about Secretome & Exosome Therapy.",
+      "Hello Denish Gunawan Clinic — I would like to ask about Secretome & Exosome Therapy.",
   },
   {
     id: "stem-nk-cell",
@@ -29,7 +29,7 @@ const modalities: Treatment[] = [
     copy: "Advanced cellular therapy supporting recovery, resilience, and immune vitality — administered under full medical supervision.",
     ctaLabel: "Ask via WhatsApp →",
     ctaMessage:
-      "Hello DG Clinic — I would like to ask about Stem Cell & NK Cell Therapy.",
+      "Hello Denish Gunawan Clinic — I would like to ask about Stem Cell & NK Cell Therapy.",
   },
 ];
 

@@ -6,7 +6,7 @@ import { INFUSION_PRODUCTS, INFUSION_TIERS } from "@/lib/pricing";
 export const metadata: Metadata = {
   title: "Terapi Infus — IV Vitamin & Kesehatan di Jakarta",
   description:
-    "Terapi infus homecare DG Clinic — dari dukungan energi harian hingga infus pemulihan terarah — dilayani secara pribadi di Jakarta oleh dokter berlisensi.",
+    "Terapi infus homecare Denish Gunawan Clinic — dari dukungan energi harian hingga infus pemulihan terarah — dilayani secara pribadi di Jakarta oleh dokter berlisensi.",
 };
 
 export default function InfusionTherapyPageId() {

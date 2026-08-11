@@ -11,9 +11,9 @@ import {
 } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Area Layanan & Kontak — DG Clinic Homecare Jakarta",
+  title: "Area Layanan & Kontak — Denish Gunawan Clinic Homecare Jakarta",
   description:
-    "DG Clinic melayani Jabodetabek dengan homecare pribadi yang dipimpin dokter. Hubungi kami di WhatsApp untuk mengatur kunjungan Anda.",
+    "Denish Gunawan Clinic melayani Jabodetabek dengan homecare pribadi yang dipimpin dokter. Hubungi kami di WhatsApp untuk mengatur kunjungan Anda.",
 };
 
 // SERVICE_REGIONS (lib/site.ts) stays English-source — region names
@@ -44,7 +44,7 @@ export default function ServiceAreaPageId() {
           <span className="em-teal">Kami Datang</span>
         </h1>
         <p className="lede">
-          DG Clinic melayani pasien di seluruh Jabodetabek, menghadirkan
+          Denish Gunawan Clinic melayani pasien di seluruh Jabodetabek, menghadirkan
           perawatan pribadi yang dipimpin dokter di setiap kunjungan.
         </p>
       </section>
@@ -100,7 +100,7 @@ export default function ServiceAreaPageId() {
             </a>
           </p>
           <WhatsAppButton
-            label="Hubungi DG Clinic di WhatsApp →"
+            label="Hubungi Denish Gunawan Clinic di WhatsApp →"
             variant="light"
           />
         </div>

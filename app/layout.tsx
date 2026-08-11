@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   // Display title only — SITE_NAME/LEGAL_NAME below are unchanged.
   title: "DOKDEN — Private Physician Services | Denish Gunawan Clinic",
   description:
-    "DG Clinic brings doctor-led home-care to Jakarta — infusion, regenerative therapy, metabolic wellness, and aesthetics, delivered privately to your door. Trusted since 2021.",
+    "Denish Gunawan Clinic brings doctor-led home-care to Jakarta — infusion, regenerative therapy, metabolic wellness, and aesthetics, delivered privately to your door. Trusted since 2021.",
   openGraph: {
     siteName: SITE_NAME,
     type: "website",

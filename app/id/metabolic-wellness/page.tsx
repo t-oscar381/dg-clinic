@@ -5,7 +5,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 export const metadata: Metadata = {
   title: "Kesehatan Metabolik — Program Penurunan Berat Badan Medis di Jakarta",
   description:
-    "Dukungan penurunan berat badan dan performa yang dipandu dokter dari DG Clinic — program suntik dan oral, dilayani secara pribadi di rumah di Jakarta.",
+    "Dukungan penurunan berat badan dan performa yang dipandu dokter dari Denish Gunawan Clinic — program suntik dan oral, dilayani secara pribadi di rumah di Jakarta.",
 };
 
 const programs: Treatment[] = [
@@ -18,7 +18,7 @@ const programs: Treatment[] = [
     copy: "Manajemen berat badan yang diawasi dokter, menggabungkan obat suntik dan oral dengan panduan gaya hidup — dirancang sebagai program berkelanjutan, bukan perawatan sekali jalan.",
     ctaLabel: "Tanya via WhatsApp →",
     ctaMessage:
-      "Halo DG Clinic — saya ingin bertanya tentang Program Penurunan Berat Badan.",
+      "Halo Denish Gunawan Clinic — saya ingin bertanya tentang Program Penurunan Berat Badan.",
   },
   {
     id: "sleep-focus",
@@ -29,7 +29,7 @@ const programs: Treatment[] = [
     copy: "Dukungan terarah untuk istirahat, ketajaman pikiran, dan performa harian.",
     ctaLabel: "Tanya via WhatsApp →",
     ctaMessage:
-      "Halo DG Clinic — saya ingin bertanya tentang Penunjang Tidur & Fokus.",
+      "Halo Denish Gunawan Clinic — saya ingin bertanya tentang Penunjang Tidur & Fokus.",
   },
 ];
 
@@ -47,7 +47,7 @@ export default function MetabolicWellnessPageId() {
         </h1>
         <p className="lede">
           Hasil yang berkelanjutan datang dari panduan medis, bukan
-          tebak-tebakan. Program metabolik DG Clinic dirancang, diawasi, dan
+          tebak-tebakan. Program metabolik Denish Gunawan Clinic dirancang, diawasi, dan
           disesuaikan oleh dokter berlisensi — secara pribadi, di rumah Anda.
         </p>
       </section>

@@ -6,7 +6,7 @@ import { VACCINE_GROUPS, VACCINES } from "@/lib/pricing";
 export const metadata: Metadata = {
   title: "Vaksinasi — Vaksin Dewasa & Perjalanan di Jakarta",
   description:
-    "Menu vaksin DG Clinic — cacar air, HPV, meningokokus, RSV, vaksin perjalanan, dan lainnya, diberikan di rumah oleh dokter berlisensi di Jakarta.",
+    "Menu vaksin Denish Gunawan Clinic — cacar air, HPV, meningokokus, RSV, vaksin perjalanan, dan lainnya, diberikan di rumah oleh dokter berlisensi di Jakarta.",
 };
 
 export default function VaccinationsPageId() {

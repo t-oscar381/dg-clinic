@@ -3,9 +3,9 @@ import TreatmentTabs, { type Treatment } from "@/components/TreatmentTabs";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "Perawatan Estetika & Pertumbuhan Rambut di Rumah — DG Clinic Jakarta",
+  title: "Perawatan Estetika & Pertumbuhan Rambut di Rumah — Denish Gunawan Clinic Jakarta",
   description:
-    "Perawatan estetika klinis dan pertumbuhan rambut dari DG Clinic — skin booster, signature lifting, dan restorasi rambut, dilayani secara pribadi di Jakarta.",
+    "Perawatan estetika klinis dan pertumbuhan rambut dari Denish Gunawan Clinic — skin booster, signature lifting, dan restorasi rambut, dilayani secara pribadi di Jakarta.",
 };
 
 // Product/brand names ("Natural Tersembunyi Skin Lift") stay as-is —
@@ -20,7 +20,7 @@ const treatments: Treatment[] = [
     copy: "Perawatan kulit regeneratif yang menggabungkan hidrasi mendalam dengan dukungan peremajaan berbasis sel.",
     ctaLabel: "Tanya via WhatsApp →",
     ctaMessage:
-      "Halo DG Clinic — saya ingin bertanya tentang perawatan Skin Booster + Exosome.",
+      "Halo Denish Gunawan Clinic — saya ingin bertanya tentang perawatan Skin Booster + Exosome.",
   },
   {
     id: "natural-tersembunyi",
@@ -31,7 +31,7 @@ const treatments: Treatment[] = [
     copy: "Perawatan pengencangan andalan kami — hasil yang halus dan tampak alami, tetap menjadi rahasia Anda.",
     ctaLabel: "Tanya via WhatsApp →",
     ctaMessage:
-      "Halo DG Clinic — saya ingin bertanya tentang Natural Tersembunyi Skin Lift.",
+      "Halo Denish Gunawan Clinic — saya ingin bertanya tentang Natural Tersembunyi Skin Lift.",
   },
   {
     id: "hyperpigmentation",
@@ -42,7 +42,7 @@ const treatments: Treatment[] = [
     copy: "Perawatan klinis terarah untuk warna kulit tidak merata dan flek hitam.",
     ctaLabel: "Tanya via WhatsApp →",
     ctaMessage:
-      "Halo DG Clinic — saya ingin bertanya tentang Perawatan Hiperpigmentasi.",
+      "Halo Denish Gunawan Clinic — saya ingin bertanya tentang Perawatan Hiperpigmentasi.",
   },
   {
     id: "hair-growth",
@@ -53,7 +53,7 @@ const treatments: Treatment[] = [
     copy: "Program rancangan dokter yang menggabungkan mesoterapi, dukungan oral, dan perawatan topikal untuk rambut yang lebih lebat dan sehat.",
     ctaLabel: "Tanya via WhatsApp →",
     ctaMessage:
-      "Halo DG Clinic — saya ingin bertanya tentang Program Pertumbuhan Rambut.",
+      "Halo Denish Gunawan Clinic — saya ingin bertanya tentang Program Pertumbuhan Rambut.",
   },
 ];
 

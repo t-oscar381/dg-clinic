@@ -44,12 +44,12 @@ function buildMessage(
   const price = formatIdr(product.nowIdr);
   if (locale === "id") {
     return style === "book"
-      ? `Halo DG Clinic — saya ingin memesan ${product.name} (${price}).`
-      : `Halo DG Clinic — saya ingin bertanya tentang ${product.name} (${price}).`;
+      ? `Halo Denish Gunawan Clinic — saya ingin memesan ${product.name} (${price}).`
+      : `Halo Denish Gunawan Clinic — saya ingin bertanya tentang ${product.name} (${price}).`;
   }
   return style === "book"
-    ? `Hello DG Clinic — I would like to book the ${product.name} (${price}).`
-    : `Hello DG Clinic — I would like to ask about the ${product.name} (${price}).`;
+    ? `Hello Denish Gunawan Clinic — I would like to book the ${product.name} (${price}).`
+    : `Hello Denish Gunawan Clinic — I would like to ask about the ${product.name} (${price}).`;
 }
 
 export default function PricedCatalog({

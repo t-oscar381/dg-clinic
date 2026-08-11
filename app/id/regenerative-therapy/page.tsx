@@ -5,7 +5,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 export const metadata: Metadata = {
   title: "Terapi Regeneratif di Jakarta — Secretome, Exosome & Perawatan Selular",
   description:
-    "Terapi regeneratif lanjutan dari DG Clinic — perawatan secretome, exosome, dan selular, dilayani secara pribadi di rumah oleh dokter berlisensi di Jakarta.",
+    "Terapi regeneratif lanjutan dari Denish Gunawan Clinic — perawatan secretome, exosome, dan selular, dilayani secara pribadi di rumah oleh dokter berlisensi di Jakarta.",
 };
 
 // "Stem Cell & NK Cell" is frozen wording (docs/HANDOFF-rebrand.md §0.3) —
@@ -25,7 +25,7 @@ const modalities: Treatment[] = [
     copy: "Perawatan regeneratif berbasis sel yang dirancang untuk mendukung proses perbaikan dan pemulihan alami tubuh Anda.",
     ctaLabel: "Tanya via WhatsApp →",
     ctaMessage:
-      "Halo DG Clinic — saya ingin bertanya tentang Terapi Secretome & Exosome.",
+      "Halo Denish Gunawan Clinic — saya ingin bertanya tentang Terapi Secretome & Exosome.",
   },
   {
     id: "advanced-regenerative",
@@ -36,7 +36,7 @@ const modalities: Treatment[] = [
     copy: "Terapi selular lanjutan yang mendukung pemulihan, ketahanan tubuh, dan vitalitas imun — dilakukan di bawah pengawasan medis penuh.",
     ctaLabel: "Tanya via WhatsApp →",
     ctaMessage:
-      "Halo DG Clinic — saya ingin bertanya tentang Terapi Regeneratif Lanjutan.",
+      "Halo Denish Gunawan Clinic — saya ingin bertanya tentang Terapi Regeneratif Lanjutan.",
   },
 ];
 
@@ -57,7 +57,7 @@ export default function RegenerativeTherapyPageId() {
           <span className="em-gold">Vitalitas Jangka Panjang</span>
         </h1>
         <p className="lede">
-          Generasi kesehatan berikutnya bekerja di tingkat selular. DG Clinic
+          Generasi kesehatan berikutnya bekerja di tingkat selular. Denish Gunawan Clinic
           menghadirkan terapi regeneratif lanjutan ke rumah Anda — ditangani
           dokter, bersifat pribadi, dan disesuaikan untuk Anda.
         </p>

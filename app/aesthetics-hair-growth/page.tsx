@@ -3,9 +3,9 @@ import TreatmentTabs, { type Treatment } from "@/components/TreatmentTabs";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "Aesthetic & Hair Growth Treatment at Home — DG Clinic Jakarta",
+  title: "Aesthetic & Hair Growth Treatment at Home — Denish Gunawan Clinic Jakarta",
   description:
-    "Clinical aesthetic care and hair growth treatment from DG Clinic — skin boosters, signature lifting, and hair restoration delivered privately in Jakarta.",
+    "Clinical aesthetic care and hair growth treatment from Denish Gunawan Clinic — skin boosters, signature lifting, and hair restoration delivered privately in Jakarta.",
 };
 
 const treatments: Treatment[] = [
@@ -18,7 +18,7 @@ const treatments: Treatment[] = [
     copy: "Regenerative skin treatment combining deep hydration with cell-derived renewal support.",
     ctaLabel: "Ask via WhatsApp →",
     ctaMessage:
-      "Hello DG Clinic — I would like to ask about the Skin Booster + Exosome treatment.",
+      "Hello Denish Gunawan Clinic — I would like to ask about the Skin Booster + Exosome treatment.",
   },
   {
     id: "natural-tersembunyi",
@@ -29,7 +29,7 @@ const treatments: Treatment[] = [
     copy: "Our signature lifting treatment — subtle, natural-looking results that stay your secret.",
     ctaLabel: "Ask via WhatsApp →",
     ctaMessage:
-      "Hello DG Clinic — I would like to ask about the Natural Tersembunyi Skin Lift.",
+      "Hello Denish Gunawan Clinic — I would like to ask about the Natural Tersembunyi Skin Lift.",
   },
   {
     id: "hyperpigmentation",
@@ -40,7 +40,7 @@ const treatments: Treatment[] = [
     copy: "Targeted clinical treatment for uneven tone and dark spots.",
     ctaLabel: "Ask via WhatsApp →",
     ctaMessage:
-      "Hello DG Clinic — I would like to ask about the Hyperpigmentation Treatment.",
+      "Hello Denish Gunawan Clinic — I would like to ask about the Hyperpigmentation Treatment.",
   },
   {
     id: "hair-growth",
@@ -51,7 +51,7 @@ const treatments: Treatment[] = [
     copy: "A doctor-designed program combining mesotherapy, oral support, and topical treatment for fuller, healthier hair.",
     ctaLabel: "Ask via WhatsApp →",
     ctaMessage:
-      "Hello DG Clinic — I would like to ask about the Hair Growth Protocol.",
+      "Hello Denish Gunawan Clinic — I would like to ask about the Hair Growth Protocol.",
   },
 ];
 

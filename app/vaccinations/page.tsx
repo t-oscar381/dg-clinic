@@ -6,7 +6,7 @@ import { VACCINE_GROUPS, VACCINES } from "@/lib/pricing";
 export const metadata: Metadata = {
   title: "Vaccinations — Adult & Travel Vaccines in Jakarta",
   description:
-    "DG Clinic's vaccine menu — chickenpox, HPV, meningococcal, RSV, travel vaccines and more, administered at home by licensed doctors in Jakarta.",
+    "Denish Gunawan Clinic's vaccine menu — chickenpox, HPV, meningococcal, RSV, travel vaccines and more, administered at home by licensed doctors in Jakarta.",
 };
 
 export default function VaccinationsPage() {
