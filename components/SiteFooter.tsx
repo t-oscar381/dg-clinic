@@ -119,6 +119,10 @@ export default function SiteFooter() {
           >
             Mindfulnish
           </a>
+          {" · "}
+          <Link href="/dg-medika" className="footer-sister">
+            DG Medika
+          </Link>
         </p>
         <p>{t.pricingNote}</p>
         {/* DOKDEN is the website wordmark only — not a legal or entity name.

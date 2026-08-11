@@ -36,6 +36,26 @@ export default function SiteHeader() {
     (item) => item.href === canonicalPath
   );
 
+  // Auto-hiding header on scroll (Round 3 feedback — "cascade" like the
+  // reference app screenshots): hides on scroll-down past the hero,
+  // reappears on scroll-up or near the top. Direction-based, not a
+  // shrink/collapse — simplest reading of "hides" that doesn't require
+  // reworking the header's layout.
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const currentY = window.scrollY;
+      const scrollingDown = currentY > lastScrollY.current;
+      const pastHero = currentY > 120;
+      setHidden(scrollingDown && pastHero);
+      lastScrollY.current = currentY;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   useEffect(() => {
     if (!open) return;
     const onPointerDown = (e: PointerEvent) => {
@@ -65,7 +85,7 @@ export default function SiteHeader() {
       : "Hello DOKDEN — I'd like to request a doctor dispatch.";
 
   return (
-    <header className="site-header">
+    <header className={`site-header ${hidden ? "is-hidden" : ""}`}>
       <div className="container header-inner">
         <Link
           href={localize("/")}
@@ -150,6 +170,17 @@ export default function SiteHeader() {
                       : item.label}
                   </Link>
                 ))}
+                {/* Mindfulness redirects out to the sister company's own
+                    site rather than an internal page — Round 3 feedback. */}
+                <a
+                  href="https://www.mindfulnish.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="nav-dropdown__link"
+                  onClick={() => setOpen(false)}
+                >
+                  Mindfulness
+                </a>
               </div>
             </div>
           </div>
@@ -161,15 +192,6 @@ export default function SiteHeader() {
             }
           >
             {t.labPartners}
-          </Link>
-          <Link
-            href={localize("/hnw-concierge")}
-            className={linkClass("/hnw-concierge")}
-            aria-current={
-              canonicalPath === "/hnw-concierge" ? "page" : undefined
-            }
-          >
-            {t.hnwConcierge}
           </Link>
           <Link
             href={localize(NAV_SECONDARY[2].href)}

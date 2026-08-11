@@ -20,9 +20,9 @@ const TRANSLATED_PATHS = [
   "/regenerative-therapy",
   "/metabolic-wellness",
   "/aesthetics-hair-growth",
+  "/vaccinations",
   "/our-story",
   "/service-area",
-  "/hnw-concierge",
   "/lab-partners",
   "/reviews",
 ] as const;
@@ -49,6 +49,7 @@ export const NAV_CATEGORY_LABELS_ID: Record<string, string> = {
   "/regenerative-therapy": "Terapi Regeneratif",
   "/metabolic-wellness": "Kesehatan Metabolik",
   "/aesthetics-hair-growth": "Estetika & Pertumbuhan Rambut",
+  "/vaccinations": "Vaksinasi",
 };
 
 // Shared chrome strings (header, footer, common CTAs) — the smallest
@@ -60,9 +61,8 @@ export const UI_STRINGS: Record<Locale, Record<string, string>> = {
     aboutFounder: "About Founder",
     services: "Services",
     labPartners: "Lab Partners",
-    hnwConcierge: "HNW Concierge",
     requestConsultation: "Request Consultation",
-    doctorDispatch: "Doctor Dispatch",
+    doctorDispatch: "Dispatch a Doctor",
     explore: "Explore",
     findUs: "Find Us",
     contact: "Contact",
@@ -76,7 +76,6 @@ export const UI_STRINGS: Record<Locale, Record<string, string>> = {
     aboutFounder: "Tentang Pendiri",
     services: "Layanan",
     labPartners: "Mitra Laboratorium",
-    hnwConcierge: "Layanan HNW Concierge",
     requestConsultation: "Ajukan Konsultasi",
     doctorDispatch: "Kirim Dokter",
     explore: "Jelajahi",
