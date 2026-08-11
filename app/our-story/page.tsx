@@ -22,7 +22,7 @@ export default function OurStoryPage() {
           <span className="eyebrow">Our Story</span>
           <h1>Meet the Man Behind DG Clinic</h1>
           <p className="lede">
-            Dr. Denish Gunawan began his medical journey at Atma Jaya
+            dr. Denish Gunawan began his medical journey at Atma Jaya
             University, earning his degree as a medical doctor.
           </p>
         </div>
@@ -60,7 +60,7 @@ export default function OurStoryPage() {
           <h2>Mind, Body, and Spirit Together</h2>
           <p>
             Recognizing the importance of treating mind, body, and spirit
-            together, Dr. Denish continued his studies on scholarship at Brown
+            together, dr. Denish continued his studies on scholarship at Brown
             University in the United States, earning a Master&rsquo;s in
             Public Health with a concentration in Mindfulness.
           </p>
@@ -70,7 +70,7 @@ export default function OurStoryPage() {
           <span className="eyebrow">Today</span>
           <h2>Back in Jakarta, Leading DG Clinic</h2>
           <p>
-            Now back in Jakarta, Dr. Denish leads DG Clinic with a deeper
+            Now back in Jakarta, dr. Denish leads DG Clinic with a deeper
             understanding, greater compassion, and a renewed commitment to the
             community that shaped his mission.
           </p>

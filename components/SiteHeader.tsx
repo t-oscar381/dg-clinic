@@ -59,6 +59,13 @@ export default function SiteHeader() {
         </Link>
         <nav className="header-nav" aria-label="Main navigation">
           <Link
+            href="/"
+            className={linkClass("/")}
+            aria-current={pathname === "/" ? "page" : undefined}
+          >
+            Home
+          </Link>
+          <Link
             href={NAV_SECONDARY[0].href}
             className={linkClass(NAV_SECONDARY[0].href)}
             aria-current={pathname === NAV_SECONDARY[0].href ? "page" : undefined}
@@ -114,6 +121,13 @@ export default function SiteHeader() {
             </div>
           </div>
           <Link
+            href={NAV_SECONDARY[1].href}
+            className={linkClass(NAV_SECONDARY[1].href)}
+            aria-current={pathname === NAV_SECONDARY[1].href ? "page" : undefined}
+          >
+            {NAV_SECONDARY[1].label}
+          </Link>
+          <Link
             href="/hnw-concierge"
             className={linkClass("/hnw-concierge")}
             aria-current={pathname === "/hnw-concierge" ? "page" : undefined}
@@ -121,11 +135,11 @@ export default function SiteHeader() {
             HNW Concierge
           </Link>
           <Link
-            href={NAV_SECONDARY[1].href}
-            className={linkClass(NAV_SECONDARY[1].href)}
-            aria-current={pathname === NAV_SECONDARY[1].href ? "page" : undefined}
+            href={NAV_SECONDARY[2].href}
+            className={linkClass(NAV_SECONDARY[2].href)}
+            aria-current={pathname === NAV_SECONDARY[2].href ? "page" : undefined}
           >
-            {NAV_SECONDARY[1].label}
+            {NAV_SECONDARY[2].label}
           </Link>
           <a
             href={waLink("Hello DOKDEN — I'd like to request a doctor dispatch.")}
