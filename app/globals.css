@@ -287,7 +287,9 @@ svg {
 
 .dk-hero-headline {
   font-family: var(--font-heading);
-  text-transform: var(--dk-display-transform);
+  /* Round 3 feedback: the home hero was the only h1 on the site still
+     rendered in all caps — every other page's h1 is normal title case. */
+  text-transform: none;
   letter-spacing: var(--dk-display-tracking);
   font-weight: var(--dk-display-weight);
   font-size: clamp(2rem, 4vw, 3.1rem);
