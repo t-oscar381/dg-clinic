@@ -1,4 +1,5 @@
 import { createPublicClient } from "@/lib/supabase/server";
+import { REVIEW_CATEGORY } from "@/lib/site";
 
 /*
  * Read helpers for public pages. Anon-key reads only — RLS already
@@ -67,6 +68,22 @@ export async function getPublishedPosts(): Promise<Post[]> {
       "id, slug, title, excerpt, body, cover_image_url, category, status, author_name, published_at, created_at"
     )
     .eq("status", "published")
+    .neq("category", REVIEW_CATEGORY)
+    .order("published_at", { ascending: false });
+
+  if (error || !data) return [];
+  return data as Post[];
+}
+
+export async function getPublishedReviews(): Promise<Post[]> {
+  const supabase = await createPublicClient();
+  const { data, error } = await supabase
+    .from("posts")
+    .select(
+      "id, slug, title, excerpt, body, cover_image_url, category, status, author_name, published_at, created_at"
+    )
+    .eq("status", "published")
+    .eq("category", REVIEW_CATEGORY)
     .order("published_at", { ascending: false });
 
   if (error || !data) return [];

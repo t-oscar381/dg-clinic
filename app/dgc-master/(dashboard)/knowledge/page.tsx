@@ -40,7 +40,7 @@ export default async function KnowledgeBankPage({
         <div>
           <h1>Knowledge Bank</h1>
           <p style={{ opacity: 0.7 }}>
-            Dr. Denish&apos;s notes, captured over WhatsApp. Each row keeps his
+            dr. Denish&apos;s notes, captured over WhatsApp. Each row keeps his
             exact words (Raw text) plus an AI-organized topic and summary.
           </p>
         </div>

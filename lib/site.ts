@@ -13,6 +13,13 @@ export const WORDMARK = "DOKDEN";
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://dgclinic.example.com";
 
+// Distinct from the freeform blog `category` field — see
+// docs/FEEDBACK-LOG.md A1 / §Reviews. Posts with this exact category are
+// excluded from /blog and shown on /reviews instead. Lives here (not
+// lib/cms.ts) so the "use client" admin form can import it without
+// pulling in server-only Supabase client code.
+export const REVIEW_CATEGORY = "review";
+
 export const WHATSAPP_DISPLAY = "+62 811-9698-66";
 
 // Deep link with a prefilled message so the WhatsApp conversation
@@ -45,12 +52,17 @@ export const NAV_CATEGORIES = [
   { href: "/regenerative-therapy", label: "Regenerative Therapy" },
   { href: "/metabolic-wellness", label: "Metabolic Wellness" },
   { href: "/aesthetics-hair-growth", label: "Aesthetics & Hair Growth" },
+  { href: "/vaccinations", label: "Vaccinations" },
 ] as const;
 
 // Header nav (DOKDEN rebrand, HANDOFF-rebrand.md §2). Hrefs are unchanged
 // from the previous site — only labels moved — so no redirects are needed.
+// "About Founder" is a deliberate exception to the dr./Dr. naming rule
+// below — see docs/FEEDBACK-LOG.md "Standing naming rules". The route
+// itself (/our-story) is unaffected.
 export const NAV_SECONDARY = [
-  { href: "/our-story", label: "About Dr. Denish" },
+  { href: "/our-story", label: "About Founder" },
+  { href: "/lab-partners", label: "Lab Partners" },
   { href: "/service-area", label: "Request Consultation" },
 ] as const;
 
@@ -64,6 +76,7 @@ export const NAV_ITEMS = [
   ...NAV_FOOTER_ONLY,
 ] as const;
 
+// 3 boxes, no repeated cities across cards — see docs/FEEDBACK-LOG.md A5.
 export const SERVICE_REGIONS = [
   {
     name: "Jakarta (all areas)",
@@ -76,15 +89,18 @@ export const SERVICE_REGIONS = [
     ],
   },
   {
-    name: "BSD City & Serpong",
-    areas: ["BSD City", "Serpong", "Gading Serpong", "Tangerang Selatan"],
+    name: "Tangerang",
+    areas: [
+      "Tangerang",
+      "Tangerang Selatan",
+      "Alam Sutera",
+      "BSD City",
+      "Serpong",
+      "Gading Serpong",
+    ],
   },
   {
-    name: "Alam Sutera & Tangerang",
-    areas: ["Alam Sutera", "Tangerang"],
-  },
-  {
-    name: "Greater Jakarta",
-    areas: ["Surrounding areas on request"],
+    name: "Surrounding Areas",
+    areas: ["Selected areas across Greater Jakarta"],
   },
 ] as const;

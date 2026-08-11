@@ -167,8 +167,8 @@ export default async function HomePage() {
         <Reveal>
           <h2>Wherever You Are in Jakarta, We Come to You</h2>
           <p className="lede">
-            All Jakarta areas · BSD City &amp; Serpong · Alam Sutera &amp;
-            Tangerang · Greater Jakarta surrounding areas
+            Jakarta (all areas) · Tangerang · Surrounding areas across Greater
+            Jakarta
           </p>
           <Link href="/service-area" className="btn btn-ghost">
             See Service Areas &amp; Contact

@@ -11,10 +11,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/regenerative-therapy",
     "/metabolic-wellness",
     "/aesthetics-hair-growth",
+    "/vaccinations",
     "/our-story",
     "/blog",
     "/service-area",
+    "/lab-partners",
+    "/reviews",
     "/privacy",
+    "/id",
+    "/id/infusion-therapy",
+    "/id/regenerative-therapy",
+    "/id/metabolic-wellness",
+    "/id/aesthetics-hair-growth",
+    "/id/vaccinations",
+    "/id/our-story",
+    "/id/service-area",
+    "/id/lab-partners",
+    "/id/reviews",
   ];
 
   const staticEntries: MetadataRoute.Sitemap = routes.map((route) => ({

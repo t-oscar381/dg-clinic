@@ -184,6 +184,12 @@ svg {
   background: rgba(247, 243, 236, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
+  transition: transform 0.3s ease;
+}
+
+/* Auto-hide on scroll-down (Round 3 feedback). */
+.site-header.is-hidden {
+  transform: translateY(-100%);
 }
 
 .header-inner {
@@ -209,6 +215,34 @@ svg {
 
 .header-cta {
   margin-left: 6px;
+}
+
+/* --- Language switcher (A2) -------------------------------------------- */
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.lang-switch a {
+  color: var(--color-navy);
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.lang-switch a:hover,
+.lang-switch a.is-active {
+  opacity: 1;
+  color: var(--color-teal);
+}
+
+.lang-switch span {
+  opacity: 0.3;
 }
 
 /* --- DOKDEN homepage hero -------------------------------------------- */
@@ -253,7 +287,9 @@ svg {
 
 .dk-hero-headline {
   font-family: var(--font-heading);
-  text-transform: var(--dk-display-transform);
+  /* Round 3 feedback: the home hero was the only h1 on the site still
+     rendered in all caps — every other page's h1 is normal title case. */
+  text-transform: none;
   letter-spacing: var(--dk-display-tracking);
   font-weight: var(--dk-display-weight);
   font-size: clamp(2rem, 4vw, 3.1rem);
@@ -1253,6 +1289,36 @@ svg {
   padding: 30px 28px;
 }
 
+/* Lab partner cards double as external links (A4, Round 3) — same
+   card shell as .region-card, plus link behavior and a fixed-height
+   logo slot so very different source logo aspect ratios line up. */
+.partner-card {
+  display: block;
+  text-decoration: none;
+  color: var(--color-ink);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.partner-card:hover {
+  border-color: var(--color-teal);
+  box-shadow: var(--shadow-soft);
+}
+
+.partner-card__logo {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  margin-bottom: 16px;
+}
+
+.partner-card__logo img {
+  max-height: 56px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
 .region-card h3 {
   margin-bottom: 12px;
 }
@@ -1270,6 +1336,42 @@ svg {
   padding: 5px 14px;
   font-size: 0.8rem;
   font-weight: 500;
+}
+
+/* --- Review cards (/reviews, A1) ---------------------------------------- */
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.review-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 28px 26px;
+}
+
+.review-card blockquote {
+  margin: 0 0 16px;
+  font-size: 0.96rem;
+  line-height: 1.65;
+  white-space: pre-line;
+}
+
+.review-card cite {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--color-navy);
 }
 
 /* --- CTA band ----------------------------------------------------------- */
@@ -1395,6 +1497,19 @@ svg {
   opacity: 0.85;
 }
 
+/* Text-only stand-in until the real DG Medika logo file is available
+   (see the TODO in app/dg-medika/page.tsx). */
+.dg-medika-wordmark {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--dk-gold);
+  text-transform: var(--dk-display-transform);
+  letter-spacing: var(--dk-display-tracking);
+  font-weight: var(--dk-display-weight);
+  margin-bottom: 18px;
+}
+
 @media (max-width: 640px) {
   .footer-wordmark {
     margin-left: 0;
@@ -1460,6 +1575,13 @@ svg {
   grid-template-columns: 1fr;
   max-width: 560px;
   margin: 0 auto;
+}
+
+/* A6 — the full-menu catalog (components/PricedCatalog.tsx) can hold
+   anywhere from 4 to 30+ SKUs, so it reflows by available width rather
+   than a fixed column count. */
+.product-grid--catalog {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 }
 
 @media (max-width: 720px) {
@@ -2222,6 +2344,33 @@ svg {
 .post-form__status-toggle {
   display: flex;
   gap: 8px;
+}
+
+.post-form__review-toggle {
+  padding: 14px 16px;
+  background: var(--color-teal-tint);
+  border-radius: var(--radius-md);
+}
+
+.post-form__review-toggle label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.post-form__review-toggle input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.post-form__review-fields {
+  border: 1.5px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 18px 18px 4px;
+  margin-bottom: 18px;
 }
 
 /* --- Admin finance simulator ------------------------------------------- */

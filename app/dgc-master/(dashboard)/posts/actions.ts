@@ -24,6 +24,7 @@ async function currentUserEmail(): Promise<string | null> {
 
 function revalidateBlog(slug?: string) {
   revalidatePath("/blog");
+  revalidatePath("/reviews");
   if (slug) revalidatePath(`/blog/${slug}`);
 }
 
