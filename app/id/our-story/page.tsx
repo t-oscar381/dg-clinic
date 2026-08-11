@@ -3,9 +3,9 @@ import Image from "next/image";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "Tentang Pendiri — DG Clinic, Jakarta",
+  title: "Tentang Pendiri — Denish Gunawan Clinic, Jakarta",
   description:
-    "Kisah berdirinya DG Clinic: komitmen di masa pandemi untuk perawatan homecare yang mudah diakses dan pribadi, didirikan oleh dr. Denish Gunawan, MPH.",
+    "Kisah berdirinya Denish Gunawan Clinic: komitmen di masa pandemi untuk perawatan homecare yang mudah diakses dan pribadi, didirikan oleh dr. Denish Gunawan, MPH.",
 };
 
 export default function OurStoryPageId() {
@@ -17,7 +17,7 @@ export default function OurStoryPageId() {
       >
         <div className="founder-hero-copy">
           <span className="eyebrow">Tentang Pendiri</span>
-          <h1>Kenali Sosok di Balik DG Clinic</h1>
+          <h1>Kenali Sosok di Balik Denish Gunawan Clinic</h1>
           <p className="lede">
             dr. Denish Gunawan memulai perjalanan medisnya di Universitas
             Atma Jaya, meraih gelar sebagai dokter umum.
@@ -46,7 +46,7 @@ export default function OurStoryPageId() {
             dan penuh privasi di rumah masing-masing.
           </p>
           <p>
-            Dari misi itulah DG Clinic lahir: sebuah ruang yang diciptakan
+            Dari misi itulah Denish Gunawan Clinic lahir: sebuah ruang yang diciptakan
             untuk menghubungkan lebih banyak dokter dengan pasien,
             menghadirkan perawatan yang terasa personal namun tetap berpijak
             pada profesionalisme medis.
@@ -66,9 +66,9 @@ export default function OurStoryPageId() {
 
         <div className="story-block">
           <span className="eyebrow">Hari Ini</span>
-          <h2>Kembali ke Jakarta, Memimpin DG Clinic</h2>
+          <h2>Kembali ke Jakarta, Memimpin Denish Gunawan Clinic</h2>
           <p>
-            Kini kembali di Jakarta, dr. Denish memimpin DG Clinic dengan
+            Kini kembali di Jakarta, dr. Denish memimpin Denish Gunawan Clinic dengan
             pemahaman yang lebih mendalam, kepedulian yang lebih besar, dan
             komitmen baru terhadap komunitas yang membentuk misinya.
           </p>
@@ -89,7 +89,7 @@ export default function OurStoryPageId() {
         <div className="cta-band">
           <h2>Perawatan Anda, Sesuai Keinginan Anda</h2>
           <p>
-            Setiap kunjungan DG Clinic membawa komitmen awal ini — perawatan
+            Setiap kunjungan Denish Gunawan Clinic membawa komitmen awal ini — perawatan
             pribadi yang dipimpin dokter dan selalu mendengarkan lebih dulu.
           </p>
           <WhatsAppButton

@@ -3,9 +3,9 @@ import Image from "next/image";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "Our Story — DG Clinic, Jakarta",
+  title: "Our Story — Denish Gunawan Clinic, Jakarta",
   description:
-    "How DG Clinic began: a pandemic-era commitment to accessible, private home-care, founded by dr. Denish Gunawan, MPH.",
+    "How Denish Gunawan Clinic began: a pandemic-era commitment to accessible, private home-care, founded by dr. Denish Gunawan, MPH.",
 };
 
 export default function OurStoryPage() {
@@ -20,7 +20,7 @@ export default function OurStoryPage() {
       >
         <div className="founder-hero-copy">
           <span className="eyebrow">Our Story</span>
-          <h1>Meet the Man Behind DG Clinic</h1>
+          <h1>Meet the Man Behind Denish Gunawan Clinic</h1>
           <p className="lede">
             dr. Denish Gunawan began his medical journey at Atma Jaya
             University, earning his degree as a medical doctor.
@@ -49,7 +49,7 @@ export default function OurStoryPage() {
             homes.
           </p>
           <p>
-            From that mission, DG Clinic was born: a space created to connect
+            From that mission, Denish Gunawan Clinic was born: a space created to connect
             more doctors with patients, delivering care that feels personal,
             yet remains grounded in medical professionalism.
           </p>
@@ -68,9 +68,9 @@ export default function OurStoryPage() {
 
         <div className="story-block">
           <span className="eyebrow">Today</span>
-          <h2>Back in Jakarta, Leading DG Clinic</h2>
+          <h2>Back in Jakarta, Leading Denish Gunawan Clinic</h2>
           <p>
-            Now back in Jakarta, dr. Denish leads DG Clinic with a deeper
+            Now back in Jakarta, dr. Denish leads Denish Gunawan Clinic with a deeper
             understanding, greater compassion, and a renewed commitment to the
             community that shaped his mission.
           </p>
@@ -92,7 +92,7 @@ export default function OurStoryPage() {
         <div className="cta-band">
           <h2>Your Care, On Your Terms</h2>
           <p>
-            Every DG Clinic visit carries this founding commitment — private,
+            Every Denish Gunawan Clinic visit carries this founding commitment — private,
             doctor-led care that listens first.
           </p>
           <WhatsAppButton
