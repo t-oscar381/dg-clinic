@@ -53,6 +53,7 @@ export const NAV_CATEGORIES = [
   { href: "/metabolic-wellness", label: "Metabolic Wellness" },
   { href: "/aesthetics-hair-growth", label: "Aesthetics & Hair Growth" },
   { href: "/vaccinations", label: "Vaccinations" },
+  { href: "/home-nursing-care", label: "Home Nursing Care" },
 ] as const;
 
 // Header nav (DOKDEN rebrand, HANDOFF-rebrand.md §2). Hrefs are unchanged

@@ -21,6 +21,7 @@ const TRANSLATED_PATHS = [
   "/metabolic-wellness",
   "/aesthetics-hair-growth",
   "/vaccinations",
+  "/home-nursing-care",
   "/our-story",
   "/service-area",
   "/lab-partners",
@@ -50,6 +51,7 @@ export const NAV_CATEGORY_LABELS_ID: Record<string, string> = {
   "/metabolic-wellness": "Kesehatan Metabolik",
   "/aesthetics-hair-growth": "Estetika & Pertumbuhan Rambut",
   "/vaccinations": "Vaksinasi",
+  "/home-nursing-care": "Perawatan Rumah oleh Perawat",
 };
 
 // Shared chrome strings (header, footer, common CTAs) — the smallest
