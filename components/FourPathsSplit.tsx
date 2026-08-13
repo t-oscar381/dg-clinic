@@ -28,7 +28,6 @@ const CHIPS = {
   metabolic: ["Weight Loss Program", "Sleep & Focus Boosters"],
   aesthetics: [
     "Skin Booster + Exosome",
-    "Natural Tersembunyi Skin Lift",
     "Hyperpigmentation",
     "Hair Growth Protocol",
   ],

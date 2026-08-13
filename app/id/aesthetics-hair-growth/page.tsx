@@ -8,8 +8,6 @@ export const metadata: Metadata = {
     "Perawatan estetika klinis dan pertumbuhan rambut dari Denish Gunawan Clinic — skin booster, signature lifting, dan restorasi rambut, dilayani secara pribadi di Jakarta.",
 };
 
-// Product/brand names ("Natural Tersembunyi Skin Lift") stay as-is —
-// see the EN page for the same rule.
 const treatments: Treatment[] = [
   {
     id: "skin-booster-exosome",
@@ -21,17 +19,6 @@ const treatments: Treatment[] = [
     ctaLabel: "Tanya via WhatsApp →",
     ctaMessage:
       "Halo Denish Gunawan Clinic — saya ingin bertanya tentang perawatan Skin Booster + Exosome.",
-  },
-  {
-    id: "natural-tersembunyi",
-    tab: "Natural Tersembunyi Skin Lift",
-    badge: "Signature",
-    badgeClass: "badge-signature",
-    name: "Natural Tersembunyi Skin Lift",
-    copy: "Perawatan pengencangan andalan kami — hasil yang halus dan tampak alami, tetap menjadi rahasia Anda.",
-    ctaLabel: "Tanya via WhatsApp →",
-    ctaMessage:
-      "Halo Denish Gunawan Clinic — saya ingin bertanya tentang Natural Tersembunyi Skin Lift.",
   },
   {
     id: "hyperpigmentation",

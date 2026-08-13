@@ -21,17 +21,6 @@ const treatments: Treatment[] = [
       "Hello Denish Gunawan Clinic — I would like to ask about the Skin Booster + Exosome treatment.",
   },
   {
-    id: "natural-tersembunyi",
-    tab: "Natural Tersembunyi Skin Lift",
-    badge: "Signature",
-    badgeClass: "badge-signature",
-    name: "Natural Tersembunyi Skin Lift",
-    copy: "Our signature lifting treatment — subtle, natural-looking results that stay your secret.",
-    ctaLabel: "Ask via WhatsApp →",
-    ctaMessage:
-      "Hello Denish Gunawan Clinic — I would like to ask about the Natural Tersembunyi Skin Lift.",
-  },
-  {
     id: "hyperpigmentation",
     tab: "Hyperpigmentation",
     badge: "Hyperpigmentation",
