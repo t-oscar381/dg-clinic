@@ -62,7 +62,7 @@ export default function HomePageId() {
           <div className="trust-line">
             <span>Sejak 2021</span>
             <span>10.000+ Pasien Dilayani</span>
-            <span>Hanya Dikirim Dokter</span>
+            <span>Perawatan Dipimpin Dokter</span>
           </div>
         </div>
       </section>
@@ -87,6 +87,40 @@ export default function HomePageId() {
         </div>
       </section>
 
+      <section className="section container">
+        <Reveal>
+          <div className="center">
+            <span className="eyebrow">Homecare untuk Siapa Saja</span>
+            <h2>Homecare, Dibangun untuk yang Membutuhkannya</h2>
+          </div>
+        </Reveal>
+        <Reveal delay={90}>
+          <div className="grid-2">
+            <div className="region-card">
+              <h3>Siapa yang Paling Diuntungkan</h3>
+              <ul>
+                <li>Profesional sibuk</li>
+                <li>Pasien lansia</li>
+                <li>Pasien penyakit kronis</li>
+                <li>Pasien pasca rawat inap</li>
+                <li>Anak-anak dengan sakit ringan</li>
+              </ul>
+            </div>
+            <div className="region-card">
+              <h3>Mengapa Memilih Homecare</h3>
+              <ul>
+                <li>Tanpa perlu bepergian</li>
+                <li>Perawatan holistik</li>
+                <li>Perawatan personal</li>
+                <li>Melibatkan keluarga</li>
+                <li>Privasi lebih terjaga</li>
+                <li>Risiko paparan penyakit lebih rendah</li>
+              </ul>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
       <section className="navy-block dk-slate-block">
         <div className="container">
           <div className="center">
@@ -95,10 +129,9 @@ export default function HomePageId() {
           </div>
           <p className="statement">
             Kami percaya kesehatan seharusnya bersifat pribadi. Setiap
-            kunjungan ditangani oleh{" "}
-            <span className="em-teal">dokter berlisensi</span> — bukan
-            kunjungan perawat semata — dengan kerahasiaan penuh di rumah Anda
-            sendiri.
+            kunjungan direncanakan dan diawasi oleh{" "}
+            <span className="em-teal">dokter berlisensi</span> — dengan
+            kerahasiaan penuh di rumah Anda sendiri.
           </p>
           <div className="stat-cards">
             <Reveal delay={0}>
@@ -116,15 +149,16 @@ export default function HomePageId() {
             <Reveal delay={180}>
               <div className="stat-card">
                 <p className="stat-value">100%</p>
-                <p className="stat-label">Hanya Dikirim Dokter</p>
+                <p className="stat-label">Perawatan Dipimpin Dokter</p>
               </div>
             </Reveal>
           </div>
           <ul className="pillar-list">
             <li>
-              <strong>Hanya dikirim dokter</strong> — setiap perawatan
-              ditangani oleh dokter berlisensi yang dihadirkan khusus untuk
-              Anda.
+              <strong>Perawatan dipimpin dokter</strong> — setiap rencana
+              perawatan ditetapkan dan diawasi oleh dokter berlisensi;
+              perawatan jangka panjang di rumah didampingi perawat di bawah
+              arahan dokter yang sama.
             </li>
             <li>
               <strong>Kerahasiaan penuh</strong> — tanpa kunjungan klinik,

@@ -67,7 +67,7 @@ export default async function HomePage() {
           <div className="trust-line">
             <span>Est. 2021</span>
             <span>10,000+ Patients Served</span>
-            <span>Doctor-Only Dispatch</span>
+            <span>Doctor-Led Care</span>
           </div>
         </div>
       </section>
@@ -96,6 +96,43 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Homecare for Everyone — Round 3 feedback (B5, docs/FEEDBACK-LOG.md).
+          Who it's for + why homecare, from the brand designer's Instagram
+          creative. */}
+      <section className="section container">
+        <Reveal>
+          <div className="center">
+            <span className="eyebrow">Homecare for Everyone</span>
+            <h2>Homecare, Built Around Who Needs It</h2>
+          </div>
+        </Reveal>
+        <Reveal delay={90}>
+          <div className="grid-2">
+            <div className="region-card">
+              <h3>Who Benefits Most</h3>
+              <ul>
+                <li>Busy professionals</li>
+                <li>Elderly patients</li>
+                <li>Chronic illness patients</li>
+                <li>Post-hospitalisation patients</li>
+                <li>Children with mild illnesses</li>
+              </ul>
+            </div>
+            <div className="region-card">
+              <h3>Why Choose Homecare</h3>
+              <ul>
+                <li>No travelling</li>
+                <li>Holistic treatment</li>
+                <li>Personalised care</li>
+                <li>Family involvement</li>
+                <li>Greater privacy</li>
+                <li>Less exposure to illness</li>
+              </ul>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
       {/* Why Denish Gunawan Clinic — restyled to the DOKDEN dark band, content unchanged
           per docs/HANDOFF-rebrand.md §3, §5 stage 5. */}
       <section className="navy-block dk-slate-block">
@@ -105,9 +142,10 @@ export default async function HomePage() {
             <h2>Care Built Around Privacy</h2>
           </div>
           <p className="statement">
-            We believe wellness should be private. Every visit is conducted by
-            a <span className="em-teal">licensed doctor</span> — never a
-            nurse-only visit — in the discretion of your own home.
+            We believe wellness should be private. Every visit is set and
+            supervised by a{" "}
+            <span className="em-teal">licensed doctor</span> — in the
+            discretion of your own home.
           </p>
           <div className="stat-cards">
             <Reveal delay={0}>
@@ -125,14 +163,16 @@ export default async function HomePage() {
             <Reveal delay={180}>
               <div className="stat-card">
                 <p className="stat-value">100%</p>
-                <p className="stat-label">Doctor-Only Dispatch</p>
+                <p className="stat-label">Doctor-Led Care</p>
               </div>
             </Reveal>
           </div>
           <ul className="pillar-list">
             <li>
-              <strong>Doctor-only dispatch</strong> — every treatment is
-              administered by a hired, licensed physician.
+              <strong>Doctor-led care</strong> — every treatment plan is set
+              and supervised by a hired, licensed physician; extended
+              homecare is nurse-supported under that same doctor&rsquo;s
+              direction.
             </li>
             <li>
               <strong>Complete discretion</strong> — no clinic visit, no
