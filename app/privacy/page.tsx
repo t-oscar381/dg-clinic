@@ -63,8 +63,11 @@ export default function PrivacyPolicyPage() {
             <li>
               <strong>Basic technical data</strong> — standard website logs
               (such as pages visited and device type) used to keep the site
-              working and secure. Our website does not require an account
-              and does not use advertising trackers.
+              working and secure. When you click certain links (for example,
+              to start a WhatsApp conversation about a lab test), we set a
+              first-party functional cookie so we don&rsquo;t count the same
+              visit twice. Our website does not require an account and does
+              not use advertising trackers.
             </li>
           </ul>
         </div>

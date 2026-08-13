@@ -37,11 +37,12 @@ export default function SiteHeader() {
     (item) => item.href === canonicalPath
   );
 
-  // Blog and privacy render a plain light hero (or none at all), not
-  // the dark dk-hero/dk-page-hero band every other page has — so
-  // there's nothing for a transparent header to blend into there.
-  // Keep the header solid on those instead of going transparent over
-  // a light background (Round 4 feedback).
+  // Blog, privacy, and lab-partners render a plain light hero (or none
+  // at all), not the dark dk-hero/dk-page-hero band every other page
+  // has — so there's nothing for a transparent header to blend into
+  // there. Keep the header solid on those instead of going transparent
+  // over a light background (Round 4 feedback; lab-partners lost its
+  // dark hero in Round 3 B2's demotion to a quiet trust line).
   const path = pathname ?? "/";
   const hasHeroBand = !(
     path === "/blog" ||
@@ -49,7 +50,9 @@ export default function SiteHeader() {
     path === "/id/blog" ||
     path.startsWith("/id/blog/") ||
     path === "/privacy" ||
-    path === "/id/privacy"
+    path === "/id/privacy" ||
+    path === "/lab-partners" ||
+    path === "/id/lab-partners"
   );
 
   // The header is fixed (not sticky) so it can float transparently over

@@ -1,79 +1,35 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Lab Partners — Denish Gunawan Clinic, Jakarta",
+  title: "Lab Requests — Denish Gunawan Clinic, Jakarta",
   description:
-    "The accredited diagnostic laboratories Denish Gunawan Clinic works with for homecare testing across Jakarta: Prodia, Biotest, and Biomedika.",
+    "Need a lab test alongside your homecare visit? Message us on WhatsApp and we'll coordinate sample collection and testing.",
 };
 
-// Logos are temporary — sourced from each partner's public site for now;
-// HD versions to follow from sales (docs/FEEDBACK-LOG.md Round 3).
-const PARTNERS = [
-  {
-    name: "Prodia",
-    blurb:
-      "One of Indonesia's largest and longest-running clinical laboratory networks.",
-    logo: "/images/partners/prodia.png",
-    logoWidth: 500,
-    logoHeight: 163,
-    url: "https://www.prodia.co.id",
-  },
-  {
-    name: "Biotest",
-    blurb: "Diagnostic laboratory partner supporting our homecare visits.",
-    logo: "/images/partners/biotest.jpg",
-    logoWidth: 694,
-    logoHeight: 400,
-    url: "https://biotest.co.id",
-  },
-  {
-    name: "Biomedika",
-    blurb: "Diagnostic laboratory partner supporting our homecare visits.",
-    logo: "/images/partners/biomedika.png",
-    logoWidth: 512,
-    logoHeight: 75,
-    url: "https://biomedika.co.id",
-  },
-] as const;
-
+// Demoted from a partner logo wall to a quiet trust line (docs/FEEDBACK-LOG.md
+// Round 3, B2) — advertising the labs by name invited "why not book direct
+// with them?"; the action is a WhatsApp conversation instead. No dedicated
+// hero treatment on purpose, to match.
 export default function LabPartnersPage() {
   return (
-    <>
-      <section className="hero container center dk-page-hero">
-        <span className="eyebrow">Lab Partners</span>
-        <h1>Diagnostic Labs We Work With</h1>
-        <p className="lede">
-          For homecare visits that require lab work, we coordinate sample
-          collection and testing through accredited diagnostic partners.
-        </p>
-      </section>
-
-      <section className="section-tight container">
-        <div className="grid-3">
-          {PARTNERS.map((partner) => (
-            <a
-              className="region-card partner-card"
-              key={partner.name}
-              href={partner.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${partner.name} — visit official website`}
-            >
-              <span className="partner-card__logo">
-                <Image
-                  src={partner.logo}
-                  alt={`${partner.name} logo`}
-                  width={partner.logoWidth}
-                  height={partner.logoHeight}
-                />
-              </span>
-              <h3>{partner.name}</h3>
-              <p>{partner.blurb}</p>
-            </a>
-          ))}
-        </div>
-      </section>
-    </>
+    <section className="hero container center">
+      <span className="eyebrow">Lab Requests</span>
+      <h1>Need a Lab Test With Your Visit?</h1>
+      <p className="lede">
+        For homecare visits that require lab work, we coordinate sample
+        collection and testing through accredited diagnostic partners —
+        Prodia, Biotest, and Biomedika.
+      </p>
+      <div className="hero-actions">
+        <a
+          href="/go/lab?t=general"
+          className="btn btn-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Request a Lab Test on WhatsApp →
+        </a>
+      </div>
+    </section>
   );
 }
