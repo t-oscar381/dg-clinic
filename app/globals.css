@@ -418,6 +418,42 @@ svg {
   color: var(--dk-gold);
 }
 
+/* DOKDEN wordmark collapse, Option 1 (docs/FEEDBACK-LOG.md Round 3, B6).
+   Transform + opacity only; "DEN" visually contracts away rather than
+   the element's box actually resizing, so there's no layout thrash. */
+.dokden-collapse {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 14px;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--dk-bone);
+  letter-spacing: var(--dk-display-tracking);
+  text-transform: var(--dk-display-transform);
+  opacity: 0.85;
+}
+
+.dokden-collapse__fade {
+  display: inline-block;
+  transform-origin: left center;
+  transform: scaleX(1);
+  opacity: 1;
+  transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.6, 0, 0.2, 1);
+}
+
+.dokden-collapse__fade.is-collapsed {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dokden-collapse__fade {
+    transition: none;
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
 @media (max-width: 760px) {
   .dk-hero {
     min-height: 560px;
