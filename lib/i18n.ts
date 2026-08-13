@@ -77,7 +77,7 @@ export const UI_STRINGS: Record<Locale, Record<string, string>> = {
     services: "Layanan",
     labPartners: "Mitra Laboratorium",
     requestConsultation: "Ajukan Konsultasi",
-    doctorDispatch: "Kirim Dokter",
+    doctorDispatch: "Panggil Dokter",
     explore: "Jelajahi",
     findUs: "Lokasi Kami",
     contact: "Kontak",

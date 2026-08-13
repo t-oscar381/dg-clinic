@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import DokdenCollapse from "@/components/DokdenCollapse";
 import FourPathsSplit from "@/components/FourPathsSplit";
 import InstagramGrid from "@/components/InstagramGrid";
 import Reveal from "@/components/Reveal";
@@ -35,14 +36,15 @@ export default function HomePageId() {
           <div className="dk-hero-scrim" />
         </div>
         <div className="container dk-hero-content">
+          <DokdenCollapse />
           <span className="eyebrow">Kesehatan Homecare Premium · Jakarta</span>
           <h1 className="dk-hero-headline">
-            Layanan Dokter Pribadi.
+            Dokter Pribadi ke Rumah Anda.
             <br />
-            Perawatan Tanpa Kompromi.
+            Standar Perawatan Terbaik.
           </h1>
           <p className="lede">
-            Homecare yang dipimpin dokter di seluruh Jabodetabek.
+            Perawatan di rumah, langsung ditangani dokter — se-Jabodetabek.
           </p>
           <div className="hero-actions">
             <a
@@ -51,15 +53,15 @@ export default function HomePageId() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Kirim Dokter
+              Panggil Dokter
             </a>
             <Link href="/id/infusion-therapy" className="btn btn-ghost">
-              Jelajahi Perawatan
+              Lihat Layanan
             </Link>
           </div>
           <div className="trust-line">
-            <span>Berdiri 2021</span>
-            <span>10.000+ Pasien Terlayani</span>
+            <span>Sejak 2021</span>
+            <span>10.000+ Pasien Dilayani</span>
             <span>Hanya Dikirim Dokter</span>
           </div>
         </div>
@@ -101,14 +103,14 @@ export default function HomePageId() {
           <div className="stat-cards">
             <Reveal delay={0}>
               <div className="stat-card">
-                <p className="stat-value">Berdiri 2021</p>
+                <p className="stat-value">Sejak 2021</p>
                 <p className="stat-label">Dipercaya Sejak</p>
               </div>
             </Reveal>
             <Reveal delay={90}>
               <div className="stat-card">
                 <p className="stat-value">10.000+</p>
-                <p className="stat-label">Pasien Terlayani</p>
+                <p className="stat-label">Pasien Dilayani</p>
               </div>
             </Reveal>
             <Reveal delay={180}>
