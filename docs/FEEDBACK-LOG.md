@@ -126,6 +126,176 @@ design decision.
 
 ---
 
+## Round 3 — 13 Aug 2026 · dr. Denish + Tommy · APPROVED, build these
+
+### B1 — Remove "Natural Tersembunyi Skin Lift"
+
+Delete the chip from Aesthetics & Hair Growth in `components/FourPathsSplit.tsx`
+and from `app/aesthetics-hair-growth/page.tsx` (tab, badge, prefilled WhatsApp
+message). Name was unclear to the founder himself. Remove, don't rename.
+
+### B2 — Lab requests go to WhatsApp, not a page
+
+**Rationale (dr. Denish):** if the site advertises Prodia / Biotest / Biomedika
+prominently, the visitor asks "why book through you instead of going direct?"
+Keep partners as quiet credibility, make the *action* a conversation.
+
+- Demote the partner names to a single small trust line. No logo wall, no
+  dedicated hero treatment.
+- Every lab CTA opens WhatsApp with a prefilled, parameterised message:
+  `Halo DG Clinic — saya mau lab test: {test}`
+
+**Implementation — redirect route, not a raw `wa.me` link:**
+
+`/go/lab?t=<key>` → records the click → 302 to the `wa.me` deep link.
+
+- Keep a **whitelist map** of `key → label` in `lib/labs.ts`. Look the label up
+  from the key; never interpolate raw query text into the WhatsApp message.
+  Unknown key → fall back to a generic message. This prevents message injection
+  and an open-redirect.
+- Works with JavaScript disabled, and the tracking can't be blocked by an
+  ad-blocker the way a client-side event can.
+
+### B3 — Click counting, deduplicated per browser
+
+Requirement: count one click per user/browser; a later click by the same person
+counts as new.
+
+**Approach — first-party cookie + time window. Minimal logic, no new vendor.**
+
+- On first hit to `/go/*`, set a first-party cookie `dgc_vid` = random UUID,
+  `httpOnly`, `SameSite=Lax`, 1-year expiry.
+- Insert into a Supabase table:
+
+```sql
+create table link_clicks (
+  id         bigserial primary key,
+  link_key   text not null,          -- e.g. 'lab:vitamin-d'
+  visitor_id text not null,
+  clicked_at timestamptz not null default now()
+);
+create unique index link_clicks_dedup
+  on link_clicks (link_key, visitor_id, date_trunc('day', clicked_at));
+```
+
+- The unique index does the dedup **in the database** — one row per
+  visitor / link / day. Re-clicking tomorrow counts as new. Insert with
+  `on conflict do nothing`; the redirect fires regardless of insert result.
+- Window is a single line to change if 24h turns out wrong.
+
+This is deliberately the low-code option: one table, one index, one route.
+No analytics SDK, no client JS, no consent banner implications beyond a
+first-party functional cookie.
+
+⚠️ Mention the cookie in `app/privacy/` — one sentence, it's first-party and
+functional but it should be disclosed.
+
+**Cheaper alternative if even this is too much:** Vercel Web Analytics custom
+events via `track()`. ~5 lines, but no dedup, no ownership of the data, and
+blocked by ad-blockers. Not recommended given the requirement is specifically
+about counting unique clicks.
+
+### B4 — Indonesian copy is too literal
+
+dr. Denish: *"Bahasa indonesianya perlu direview karena terlalu direct
+translation."* These are machine-literal renderings, not how Indonesians speak.
+
+**Suggested revisions — for dr. Denish / Nicole to confirm, not to ship blind:**
+
+| Current | Issue | Suggested |
+|---|---|---|
+| **Kirim Dokter** | "Kirim" = to ship/send an object. Reads like parcel delivery | **Panggil Dokter** — the natural phrase for calling a doctor to the house |
+| **Jelajahi Perawatan** | "Jelajahi" = explore/roam. Very literal | **Lihat Layanan** |
+| **BERDIRI 2021** | Literal "established". Stiff | **SEJAK 2021** |
+| **10.000+ PASIEN TERLAYANI** | "Terlayani" is awkward passive | **10.000+ PASIEN DILAYANI** |
+| **Layanan Dokter Pribadi. Perawatan Tanpa Kompromi.** | Direct translation of the English | dr. Denish suggested *pelayanan dengan standar terbaik*. e.g. **Dokter Pribadi ke Rumah Anda. Standar Perawatan Terbaik.** |
+| **Homecare yang dipimpin dokter di seluruh Jabodetabek** | "dipimpin" = led/commanded, odd for care | **Perawatan di rumah, langsung ditangani dokter — se-Jabodetabek** |
+
+"Jabodetabek" is correct and natural — keep it.
+
+Use the `humanizer` and `product-marketing` skills for the remaining pages
+(A2), not raw translation. **Every Bahasa string needs a native read before
+launch** — this round proves the machine pass isn't sufficient.
+
+### B5 — "Homecare untuk siapa saja" section
+
+From the brand designer's Instagram creative. Add to the homepage (and/or a
+homecare page).
+
+**Who benefits most:**
+Busy professionals · Elderly patients · Chronic illness patients ·
+Post-hospitalisation patients · Children with mild illnesses
+
+**Why homecare:**
+No travelling · Holistic treatment · Personalised care · Family involvement ·
+Greater privacy · Less exposure to illness
+
+**Additional services to add as a category:**
+- Pasang NGT — nasogastric tube placement
+- Pasang kateter — indwelling urinary catheter placement
+- Perawatan luka — wound care (diabetic, post-operative, decubitus ulcers)
+- EKG — electrocardiogram
+- 24-hour nurse / caregiver care
+
+⚠️ **CONFLICT — must be resolved before this ships.** See §Doctor-only below.
+
+---
+
+## §Doctor-only claim vs 24-hour nurse care — BLOCKER
+
+The site currently states, in the trust block and the stat cards:
+
+- *"Every visit is conducted by a licensed doctor — **never a nurse-only
+  visit**"*
+- *"**100% DOCTOR-ONLY DISPATCH**"*
+- *"Doctor-only dispatch — every treatment is administered by a hired, licensed
+  physician"*
+
+B5 adds **"24-hour nurse or caregiver care"** as a service, and NGT placement,
+catheter placement and wound care are ordinarily nursing procedures.
+
+**These cannot both be true on the same website.** "100%" and "never" are
+absolute claims; publishing a nursing service directly beside them is a
+factual contradiction a competitor or regulator could point at — and it
+undercuts the single strongest differentiator on the site (Nicole's R1 item
+1.4: highlight "Doctor-led").
+
+Do **not** ship B5 until Tommy/dr. Denish choose:
+
+1. **Doctor-led, nurse-supported** — soften the absolutes: *"Every treatment
+   plan is set and supervised by a licensed doctor."* Keeps the differentiator,
+   accommodates nursing services. *(Recommended.)*
+2. **Keep the absolutes** — do not publish nurse/caregiver services on this
+   site; route them elsewhere.
+3. **Split the claim by service line** — doctor-only for medical treatments,
+   clearly labelled nursing for the new category. Honest, but weakens the
+   headline message.
+
+### B6 — DOKDEN logo animation, Option 1 (approved)
+
+**Collapse the wordmark to "DOK", then expand back.** "Dok" is how Indonesians
+address a doctor, so the animation moves from formal name to how a patient
+actually speaks. Modelled on the Anthropic wordmark→monogram collapse.
+
+Spec:
+
+- Letters `D O K` are fixed. `D E N` fade out while collapsing their width to
+  zero, so the mark contracts leftward to `DOK`.
+- Transition: opacity `.5s ease`; width/transform `.6s cubic-bezier(.6,0,.2,1)`.
+- Hold roughly 2.1s at each state, loop.
+- CSS transforms and opacity only — no layout thrash, no JS animation loop.
+  A single class toggle on an interval is enough.
+- **Must respect `prefers-reduced-motion: reduce`** — render static `DOKDEN`,
+  no animation.
+- Uses `--font-heading`, `--dk-bone`; sits on `--dk-slate`.
+
+**Placement:** hero or a loading state — **not** the persistent site header.
+The header already carries the real Denish Gunawan Clinic logo, and a wordmark
+animating on every page view alongside a static clinical mark reads as busy.
+One appearance, high impact.
+
+---
+
 ## §Reviews — customer testimonials (mechanism approved, wording still constrained)
 
 **Build mechanism (approved):** reuse the blog/`posts` CMS in `/dgc-master` so
