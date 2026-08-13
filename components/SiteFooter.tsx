@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import DokdenCollapse from "@/components/DokdenCollapse";
 import LocationMap from "@/components/LocationMap";
 import {
   INSTAGRAM_HANDLE,
@@ -13,7 +14,6 @@ import {
   TAGLINE,
   WHATSAPP_DISPLAY,
   WHATSAPP_URL,
-  WORDMARK,
 } from "@/lib/site";
 import {
   localeFromPathname,
@@ -127,9 +127,7 @@ export default function SiteFooter() {
         <p>{t.pricingNote}</p>
         {/* DOKDEN is the website wordmark only — not a legal or entity name.
             See docs/HANDOFF-rebrand.md §0.1. */}
-        <span className="footer-wordmark" aria-hidden="true">
-          {WORDMARK}
-        </span>
+        <DokdenCollapse className="footer-wordmark" />
       </div>
     </footer>
   );

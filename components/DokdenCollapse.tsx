@@ -9,12 +9,18 @@ import { useEffect, useState } from "react";
  * patient actually speaks.
  *
  * Transform + opacity only, one class toggled on an interval — no width/
- * layout animation. Hero/loading-state placement only, never the header
- * (see the doc for why).
+ * layout animation. Now used in both the header and footer (moved out of
+ * the homepage-only hero per direct owner request, so it's visible on
+ * every page) — `className` lets each placement supply its own color/size
+ * via a modifier class (see app/globals.css).
  */
 const HOLD_MS = 2100;
 
-export default function DokdenCollapse() {
+export default function DokdenCollapse({
+  className = "",
+}: {
+  className?: string;
+}) {
   const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
@@ -24,7 +30,7 @@ export default function DokdenCollapse() {
   }, []);
 
   return (
-    <span className="dokden-collapse" aria-hidden="true">
+    <span className={`dokden-collapse ${className}`.trim()} aria-hidden="true">
       <span className="dokden-collapse__fixed">DOK</span>
       <span
         className={`dokden-collapse__fade ${collapsed ? "is-collapsed" : ""}`}

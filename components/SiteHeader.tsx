@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import DokdenCollapse from "@/components/DokdenCollapse";
 import {
   LOGO_SRC,
   NAV_CATEGORIES,
@@ -146,8 +147,7 @@ export default function SiteHeader() {
           aria-label={`${SITE_NAME} — ${t.home}`}
         >
           {/* Denish Gunawan Clinic mark. SVG — next/image adds nothing here,
-              so a plain img is deliberate. DOKDEN wordmark lives in the
-              footer bottom-right. */}
+              so a plain img is deliberate. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={LOGO_SRC}
@@ -157,6 +157,9 @@ export default function SiteHeader() {
             fetchPriority="high"
           />
         </Link>
+        {/* Moved out of the homepage-only hero so it's visible on every
+            page (direct owner request) — also appears in the footer. */}
+        <DokdenCollapse className="dokden-collapse--header" />
         <nav className="header-nav" aria-label="Main navigation">
           <Link
             href={localize("/")}

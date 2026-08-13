@@ -433,6 +433,22 @@ svg {
   opacity: 0.85;
 }
 
+/* Header placement — sits next to the real logo, on every page, so it
+   needs the header's own two-tone treatment: navy on the solid header,
+   bone the moment the header is transparent over a hero (matches every
+   other header-text color swap — see .site-header.is-top rules). */
+.dokden-collapse--header {
+  margin-bottom: 0;
+  margin-left: 6px;
+  font-size: 0.82rem;
+  color: var(--color-navy);
+  opacity: 0.65;
+}
+
+.site-header.is-top .dokden-collapse--header {
+  color: var(--dk-bone);
+}
+
 .dokden-collapse__fade {
   display: inline-block;
   transform-origin: left center;
@@ -1593,6 +1609,7 @@ svg {
    items wrap. */
 .footer-wordmark {
   margin-left: auto;
+  margin-bottom: 0;
   align-self: flex-end;
   font-family: var(--font-heading);
   font-size: 1rem;

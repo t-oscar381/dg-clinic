@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import DokdenCollapse from "@/components/DokdenCollapse";
 import FourPathsSplit from "@/components/FourPathsSplit";
 import InstagramGrid from "@/components/InstagramGrid";
 import Reveal from "@/components/Reveal";
@@ -36,7 +35,6 @@ export default function HomePageId() {
           <div className="dk-hero-scrim" />
         </div>
         <div className="container dk-hero-content">
-          <DokdenCollapse />
           <span className="eyebrow">Kesehatan Homecare Premium · Jakarta</span>
           <h1 className="dk-hero-headline">
             Dokter Pribadi ke Rumah Anda.

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import DokdenCollapse from "@/components/DokdenCollapse";
 import FourPathsSplit from "@/components/FourPathsSplit";
 import InstagramGrid from "@/components/InstagramGrid";
 import Reveal from "@/components/Reveal";
@@ -35,7 +34,6 @@ export default async function HomePage() {
           <div className="dk-hero-scrim" />
         </div>
         <div className="container dk-hero-content">
-          <DokdenCollapse />
           <span className="eyebrow">
             {pick(content, "hero_eyebrow", "Premium Homecare Wellness · Jakarta")}
           </span>
