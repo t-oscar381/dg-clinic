@@ -171,7 +171,28 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="story-block">
-          <h2>9. Changes to This Policy</h2>
+          <h2>9. Apotek DG Medika</h2>
+          <p>
+            Apotek DG Medika is a separate pharmacy, operated by PT Lentera
+            Harmoni Utama and affiliated with DG Clinic, at the same
+            address. Its website (apotek.dokden.com) and its WhatsApp
+            number are run by PT Lentera Harmoni Utama, which is
+            responsible for the personal data it receives through them.
+            Apotek DG Medika publishes its own privacy notice at{" "}
+            <a
+              href="https://apotek.dokden.com/privasi"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              apotek.dokden.com/privasi
+            </a>
+            . To exercise your rights over data held by the pharmacy,
+            contact it directly via its WhatsApp number.
+          </p>
+        </div>
+
+        <div className="story-block">
+          <h2>10. Changes to This Policy</h2>
           <p>
             We may update this policy from time to time. The latest version
             will always be available on this page, with the effective date

@@ -120,11 +120,22 @@ export default function SiteFooter() {
             Mindfulnish
           </a>
           {" · "}
-          <Link href="/dg-medika" className="footer-sister">
-            DG Medika
-          </Link>
+          <a
+            href="https://apotek.dokden.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-sister"
+          >
+            Apotek DG Medika
+          </a>
         </p>
         <p>{t.pricingNote}</p>
+        {/* Registered with DJKI: IDM001349109, class 44, to 24 Dec 2034.
+            ® applies to the name + logo mark only — not DG Clinic,
+            DOKDEN or DG Medika, which are unregistered. */}
+        <p>
+          {SITE_NAME}® {t.registeredTrademark}
+        </p>
         {/* DOKDEN is the website wordmark only — not a legal or entity name.
             See docs/HANDOFF-rebrand.md §0.1. */}
         <DokdenCollapse className="footer-wordmark" />

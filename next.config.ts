@@ -9,6 +9,12 @@ const nextConfig: NextConfig = {
         destination: "/regenerative-therapy",
         permanent: true,
       },
+      // Placeholder page replaced by the live pharmacy site.
+      {
+        source: "/dg-medika",
+        destination: "https://apotek.dokden.com",
+        permanent: false,
+      },
       // HNW Concierge merged into Request Consultation — same audience,
       // same intake (docs/FEEDBACK-LOG.md Round 3).
       {

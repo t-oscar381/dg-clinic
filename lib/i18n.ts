@@ -72,6 +72,7 @@ export const UI_STRINGS: Record<Locale, Record<string, string>> = {
     sisterCompany: "Our sister company:",
     pricingNote: "Full pricing and quotes are shared via WhatsApp.",
     allRightsReserved: "All rights reserved.",
+    registeredTrademark: "is a registered trademark (DJKI IDM001349109).",
   },
   id: {
     home: "Beranda",
@@ -87,5 +88,6 @@ export const UI_STRINGS: Record<Locale, Record<string, string>> = {
     sisterCompany: "Perusahaan afiliasi kami:",
     pricingNote: "Harga lengkap dan penawaran dibagikan melalui WhatsApp.",
     allRightsReserved: "Hak cipta dilindungi.",
+    registeredTrademark: "adalah merek terdaftar (DJKI IDM001349109).",
   },
 };
