@@ -103,6 +103,8 @@ built; the rest join the pending list.
 | P7 | dr. Denish | Mindfulness consultation → redirect to **mindfulnish** |
 | P8 | dr. Denish | **Change the site phone number to `0811 969 966`** — the current number moves to pharmacy |
 | P9 | dr. Denish | Future: drug requests linked to dg medika pharmacy — non-prescription and prescribed |
+
+> **Status (11 Oct 2026):** Apotek DG Medika is live at **apotek.dokden.com**, operated by PT Lentera Harmoni Utama. `/dg-medika` on this site redirects there; the placeholder page was removed. Drug-request flow (P9) is still undecided — see the pharmacy handoff sheet.
 | P10 | dr. Denish | Privacy policy edits: add **voice recording** and **procedure pictures by request**; "Health information you volunteer" reads oddly → use **medical history** |
 | P11 | Olivia | Rephrase the header CTA to match the hero — **"Dispatch a Doctor"** in both places |
 | P12 | Olivia | **"Infusion" vs "Injection" pricing may mislead.** Suggest **"IV Therapy"** as the broader term, or align the prices. Terminology decision needed |

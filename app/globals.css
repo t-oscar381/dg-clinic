@@ -1620,19 +1620,6 @@ svg {
   opacity: 0.85;
 }
 
-/* Text-only stand-in until the real DG Medika logo file is available
-   (see the TODO in app/dg-medika/page.tsx). */
-.dg-medika-wordmark {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  color: var(--dk-gold);
-  text-transform: var(--dk-display-transform);
-  letter-spacing: var(--dk-display-tracking);
-  font-weight: var(--dk-display-weight);
-  margin-bottom: 18px;
-}
-
 @media (max-width: 640px) {
   .footer-wordmark {
     margin-left: 0;
